@@ -4,6 +4,7 @@ icalendar
 numpy
 Pillow
 pycryptodome
+pycryptodomex
 XlsxWriter
 pyttsx
 pytz
