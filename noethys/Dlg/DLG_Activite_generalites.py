@@ -215,6 +215,8 @@ class Panel(wx.Panel):
         self.ctrl_code_produit_local = wx.TextCtrl(self, -1, "")
         self.label_code_service = wx.StaticText(self, -1, _(u"Code service :"))
         self.ctrl_code_service = wx.TextCtrl(self, -1, "")
+        self.label_code_analytique = wx.StaticText(self, -1, _(u"Code analytique :"))
+        self.ctrl_code_analytique = wx.TextCtrl(self, -1, "")
 
         # R√©gie de facturation
         self.staticbox_regie_facturation_staticbox = wx.StaticBox(self, -1, _(u"R√©gie de facturation"))
@@ -305,6 +307,7 @@ class Panel(wx.Panel):
         self.radio_logo_autre.SetToolTip(wx.ToolTip(_(u"Selectionnez 'Autre logo' pour attribuer √† l'activit√© un logo diff√©rent de celui de l'organisateur")))
         self.bouton_modifier_logo.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour ajouter ou modifier un logo pour cette activit√©")))
         self.bouton_supprimer_logo.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour supprimer le logo")))
+<<<<<<< HEAD
         self.bouton_visualiser_logo.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour visualiser le logo en taille r√©elle")))
         self.radio_illimitee.SetToolTip(wx.ToolTip(_(u"Selectionnez 'Illimitee' si l'activit√© est un accueil de loisirs")))
         self.radio_limitee.SetToolTip(wx.ToolTip(_(u"Saisissez une periode de validit√© si l'activite fonctionne uniquement sur une p√©riode donn√©e")))
@@ -318,6 +321,22 @@ class Panel(wx.Panel):
         self.ctrl_code_service.SetToolTip(wx.ToolTip(_(u"Saisissez un code service si vous souhaitez utiliser l'export vers les logiciels de comptabilit√© publique")))
         self.ctrl_regie_facturation.SetToolTip(wx.ToolTip(_(u"S√©lectionnez une r√©gie de facturation")))
         self.check_inscriptions_multiples.SetToolTip(wx.ToolTip(_(u"Autoriser un individu √† √™tre inscrit plusieurs fois √† la m√™me activit√©. ATTENTION, ne pas utiliser cette option si vous utilisez des consommations dans cette activit√© car la grille des consommations est incompatible.")))
+=======
+        self.bouton_visualiser_logo.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour visualiser le logo en taille rÈelle")))
+        self.radio_illimitee.SetToolTip(wx.ToolTip(_(u"Selectionnez 'Illimitee' si l'activitÈ est un accueil de loisirs")))
+        self.radio_limitee.SetToolTip(wx.ToolTip(_(u"Saisissez une periode de validitÈ si l'activite fonctionne uniquement sur une pÈriode donnÈe")))
+        self.ctrl_validite_du.SetToolTip(wx.ToolTip(_(u"Saisissez une date de debut de validitÈ")))
+        self.ctrl_validite_au.SetToolTip(wx.ToolTip(_(u"Saisissez ici une date de fin de validitÈ")))
+        self.ctrl_public.SetToolTip(wx.ToolTip(_(u"Cochez les publics autorisÈs ‡ Ítre inscrit ‡ cette activitÈ")))
+        self.check_limitation_inscrits.SetToolTip(wx.ToolTip(_(u"Cochez cette case pour dÈfinir un nombre maximal d'inscrits pour cette activitÈ (Utile uniquement pour les activitÈs ‡ durÈe limitÈe)")))
+        self.ctrl_limitation_inscrits.SetToolTip(wx.ToolTip(_(u"Saisissez le nombre maximal d'inscrits de cette activitÈ (Utile uniquement pour les activitÈs ‡ durÈe limitÈe)")))
+        self.ctrl_code_comptable.SetToolTip(wx.ToolTip(_(u"Saisissez un code comptable si vous souhaitez utiliser l'export des Ècritures comptables vers des logiciels de compta")))
+        self.ctrl_code_produit_local.SetToolTip(wx.ToolTip(_(u"Saisissez un code produit local si vous souhaitez utiliser l'export vers les logiciels de comptabilitÈ publique")))
+        self.ctrl_code_service.SetToolTip(wx.ToolTip(_(u"Saisissez un code service si vous souhaitez utiliser l'export vers les logiciels de comptabilitÈ publique")))
+        self.ctrl_code_analytique.SetToolTip(wx.ToolTip(_(u"Saisissez un code analytique si vous souhaitez utiliser l'export vers les logiciels de comptabilitÈ")))
+        self.ctrl_regie_facturation.SetToolTip(wx.ToolTip(_(u"SÈlectionnez une rÈgie de facturation")))
+        self.check_inscriptions_multiples.SetToolTip(wx.ToolTip(_(u"Autoriser un individu ‡ Ítre inscrit plusieurs fois ‡ la mÍme activitÈ. ATTENTION, ne pas utiliser cette option si vous utilisez des consommations dans cette activitÈ car la grille des consommations est incompatible.")))
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
 
     def __do_layout(self):
         grid_sizer_base = wx.FlexGridSizer(rows=1, cols=2, vgap=10, hgap=10)
@@ -368,13 +387,15 @@ class Panel(wx.Panel):
 
         # Comptabilite
         staticbox_code_comptabilite = wx.StaticBoxSizer(self.staticbox_comptabilite_staticbox, wx.HORIZONTAL)
-        grid_sizer_comptabilite = wx.FlexGridSizer(rows=3, cols=2, vgap=5, hgap=5)
+        grid_sizer_comptabilite = wx.FlexGridSizer(rows=4, cols=2, vgap=5, hgap=5)
         grid_sizer_comptabilite.Add(self.label_code_comptable, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL, 0)
         grid_sizer_comptabilite.Add(self.ctrl_code_comptable, 0, wx.EXPAND, 0)
         grid_sizer_comptabilite.Add(self.label_code_produit_local, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL, 0)
         grid_sizer_comptabilite.Add(self.ctrl_code_produit_local, 0, wx.EXPAND, 0)
         grid_sizer_comptabilite.Add(self.label_code_service, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL, 0)
         grid_sizer_comptabilite.Add(self.ctrl_code_service, 0, wx.EXPAND, 0)
+        grid_sizer_comptabilite.Add(self.label_code_analytique, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL, 0)
+        grid_sizer_comptabilite.Add(self.ctrl_code_analytique, 0, wx.EXPAND, 0)
         grid_sizer_comptabilite.AddGrowableCol(1)
         staticbox_code_comptabilite.Add(grid_sizer_comptabilite, 1, wx.ALL | wx.EXPAND, 5)
         grid_sizer_gauche.Add(staticbox_code_comptabilite, 1, wx.EXPAND, 0)
@@ -537,10 +558,16 @@ class Panel(wx.Panel):
         """ Importation des donn√©es """
         db = GestionDB.DB()
         req = """SELECT nom, abrege, coords_org, rue, cp, ville, tel, fax, mail, site, 
-        logo_org, logo, date_debut, date_fin, public, nbre_inscrits_max, code_comptable, regie, code_produit_local, inscriptions_multiples, code_service
+        logo_org, logo, date_debut, date_fin, public, nbre_inscrits_max, code_comptable, regie, code_produit_local, inscriptions_multiples, code_service, code_analytique
         FROM activites 
         WHERE IDactivite=%d;""" % self.IDactivite
-        db.ExecuterReq(req)
+        resultat = db.ExecuterReq(req)
+        if resultat == 0:
+            dlg = wx.MessageDialog(self, _(u"Il semble y avoir une erreur dans la derniËre mise ‡ niveau de la base de donnÈes. Essayez ceci depuis le Noethys de l'ordinateur qui hÈberge les donnÈes : Menu Outils > Utilitaires admin > ProcÈdures. Saisissez le code A9281 et validez."), _(u"Erreur"), wx.OK | wx.ICON_EXCLAMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            return False
+
         listeDonnees = db.ResultatReq()
         db.Close()
         if len(listeDonnees) == 0 : return
@@ -628,7 +655,15 @@ class Panel(wx.Panel):
         if code_service != None:
             self.ctrl_code_service.SetValue(code_service)
 
+<<<<<<< HEAD
         # R√©gie de facturation
+=======
+        code_analytique = activite[21]
+        if code_analytique != None:
+            self.ctrl_code_analytique.SetValue(code_analytique)
+
+        # RÈgie de facturation
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
         regie = activite[17]
         if regie != None :
             self.ctrl_regie_facturation.SetID(regie)
@@ -764,6 +799,7 @@ class Panel(wx.Panel):
         code_comptable = self.ctrl_code_comptable.GetValue() 
         code_produit_local = self.ctrl_code_produit_local.GetValue()
         code_service = self.ctrl_code_service.GetValue()
+        code_analytique = self.ctrl_code_analytique.GetValue()
 
         # R√©gie de facturation
         regie = self.ctrl_regie_facturation.GetID()
@@ -789,6 +825,7 @@ class Panel(wx.Panel):
                 ("regie", regie),
                 ("code_produit_local", code_produit_local),
                 ("code_service", code_service),
+                ("code_analytique", code_analytique),
                 ("inscriptions_multiples", inscriptions_multiples),
             ]
         DB.ReqMAJ("activites", listeDonnees, "IDactivite", self.IDactivite)

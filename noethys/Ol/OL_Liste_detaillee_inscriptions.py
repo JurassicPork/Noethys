@@ -39,6 +39,7 @@ from Utils import UTILS_Infos_individus
 LISTE_CHAMPS = [
     {"label":_(u"IDinscription"), "code":"IDinscription", "champ":"inscriptions.IDinscription", "typeDonnee":"entier", "align":"left", "largeur":65, "stringConverter":None, "actif":False, "afficher":False},
     {"label":_(u"IDindividu"), "code":"IDindividu", "champ":"inscriptions.IDindividu", "typeDonnee":"entier", "align":"left", "largeur":65, "stringConverter":None, "actif":False, "afficher":False},
+    {"label":_(u"IDactivite"), "code":"IDactivite", "champ":"inscriptions.IDactivite", "typeDonnee":"entier", "align":"left", "largeur":65, "stringConverter":None, "actif":False, "afficher":False},
     {"label":_(u"Nom complet"), "code":"nomComplet", "champ":None, "typeDonnee":"texte", "align":"left", "largeur":200, "stringConverter":None, "imageGetter":"civilite", "actif":True, "afficher":True},
 
     {"label":_(u"Activité"), "code": "nomActivite", "champ": "activites.nom", "typeDonnee": "texte", "align": "left", "largeur": 100, "stringConverter": None, "actif": True, "afficher": True},
@@ -177,31 +178,41 @@ class ListView(GroupListView):
         elif len(self.listeActivites) == 1: condition = "prestations.IDactivite IN (%d)" % self.listeActivites[0]
         else: condition = "prestations.IDactivite IN %s" % str(tuple(self.listeActivites))
 
+<<<<<<< HEAD
         # Récupère les prestations
         req = """SELECT IDfamille, IDindividu, SUM(montant)
+=======
+        # R�cup�re les prestations
+        req = """SELECT IDfamille, IDindividu, IDactivite, SUM(montant)
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
         FROM prestations
         WHERE %s
-        GROUP BY IDfamille, IDindividu
+        GROUP BY IDfamille, IDindividu, IDactivite
         ;""" % condition
         DB.ExecuterReq(req)
         listePrestations = DB.ResultatReq()
-        for IDfamille, IDindividu, total_prestations in listePrestations :
+        for IDfamille, IDindividu, IDactivite, total_prestations in listePrestations :
             if total_prestations == None :
                 total_prestations = 0.0
-            dictFacturation[(IDfamille, IDindividu)] = {"prestations":total_prestations, "ventilation":0.0}
+            dictFacturation[(IDfamille, IDindividu, IDactivite)] = {"prestations":total_prestations, "ventilation":0.0}
 
+<<<<<<< HEAD
         # Récupère la ventilation
         req = """SELECT IDfamille, IDindividu, SUM(ventilation.montant)
+=======
+        # R�cup�re la ventilation
+        req = """SELECT IDfamille, IDindividu, IDactivite, SUM(ventilation.montant)
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
         FROM ventilation
         LEFT JOIN prestations ON prestations.IDprestation = ventilation.IDprestation
         WHERE %s
-        GROUP BY IDfamille, IDindividu
+        GROUP BY IDfamille, IDindividu, IDactivite
         ;""" % condition
         DB.ExecuterReq(req)
         listeVentilations = DB.ResultatReq()
-        for IDfamille, IDindividu, total_ventilation in listeVentilations :
-            if (IDfamille, IDindividu) in dictFacturation:
-                dictFacturation[(IDfamille, IDindividu)]["ventilation"] = total_ventilation
+        for IDfamille, IDindividu, IDactivite, total_ventilation in listeVentilations :
+            if (IDfamille, IDindividu, IDactivite) in dictFacturation:
+                dictFacturation[(IDfamille, IDindividu, IDactivite)]["ventilation"] = total_ventilation
 
         # Récupération des données sur les individus
         listeChamps2 = []
@@ -279,7 +290,7 @@ class ListView(GroupListView):
             totalFacture = FloatToDecimal(0.0)
             totalRegle = FloatToDecimal(0.0)
             totalSolde = FloatToDecimal(0.0)
-            key = (dictTemp["IDfamille"], dictTemp["IDindividu"])
+            key = (dictTemp["IDfamille"], dictTemp["IDindividu"], dictTemp["IDactivite"])
             if key in dictFacturation :
                 totalFacture = FloatToDecimal(dictFacturation[key]["prestations"])
                 if totalFacture == None : totalFacture = FloatToDecimal(0.0)

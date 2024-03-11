@@ -281,7 +281,12 @@ DB_DATA = {
                                     ("code_produit_local", "VARCHAR(200)", u"Code produit local pour export compta"),
                                     ("inscriptions_multiples", "INTEGER", u"Autoriser les inscriptions multiples (0/1)"),
                                     ("code_service", "VARCHAR(200)", u"Code service"),
+<<<<<<< HEAD
                                 ],  # Activités
+=======
+                                    ("code_analytique", "VARCHAR(200)", u"Code analytique"),
+                                    ], # Activit�s
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
 
     "agrements":[            ("IDagrement", "INTEGER PRIMARY KEY AUTOINCREMENT", u"ID Agrément"),
                                     ("IDactivite", "INTEGER", u"ID de l'activité concernée"),

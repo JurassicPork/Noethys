@@ -79,7 +79,8 @@ DICT_PROCEDURES = {
     "A9072" : _(u"Statistiques du tarif à un euro"),
     "A9274" : _(u"Custom SMDH - Suppression activites"),
     "A9277" : _(u"Ajout du champ code_service"),
-    "A9279" : _(u"Recherche les factures avec ventilation sup�rieure au montant de la facture"),
+    "A9279" : _(u"Recherche les factures avec ventilation supérieure au montant de la facture"),
+    "A9281" : _(u"Ajout du champ code_analytique"),
 }
 
 
@@ -1685,6 +1686,14 @@ def A9279():
             print("Anomalie sur facture ID%d : total facture = %.2f | Ventilation = %.2f" % (IDfacture, float(montant_facture), float(ventilation)))
 
     print("Anomalies = %d" % len(liste_anomalies))
+
+
+def A9281():
+    """ Ajout du champ code_analytique à la table activites """
+    DB = GestionDB.DB()
+    DB.ExecuterReq("ALTER TABLE activites ADD COLUMN code_analytique VARCHAR(200)")
+    DB.Commit()
+    DB.Close()
 
 
 if __name__ == u"__main__":

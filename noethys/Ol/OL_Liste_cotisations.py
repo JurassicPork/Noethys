@@ -514,11 +514,16 @@ class ListView(FastObjectListView):
             "date_debut" : ColumnDefn(u"Du", 'left', 80, "date_debut", typeDonnee="date", stringConverter=FormateDate), 
             "date_fin" : ColumnDefn(_(u"Au"), 'left', 80, "date_fin", typeDonnee="date", stringConverter=FormateDate),
             "date_saisie" : ColumnDefn(_(u"Date saisie"), 'left', 80, "date_saisie", typeDonnee="date", stringConverter=FormateDate), 
+<<<<<<< HEAD
             "beneficiaires" : ColumnDefn(_(u"B√©n√©ficiaires"), 'left', 150, "beneficiaires", typeDonnee="texte"),
+=======
+            "beneficiaires" : ColumnDefn(_(u"BÈnÈficiaires de la cotisation"), 'left', 150, "beneficiaires", typeDonnee="texte"),
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
             "rue" : ColumnDefn(_(u"Rue"), 'left', 120, "rue", typeDonnee="texte"),
             "cp" : ColumnDefn(_(u"CP"), 'left', 70, "cp", typeDonnee="texte"),
             "ville" : ColumnDefn(_(u"Ville"), 'left', 100, "ville", typeDonnee="texte"),
             "type" : ColumnDefn(_(u"Type"), 'left', 110, "typeStr", typeDonnee="texte"),
+<<<<<<< HEAD
             "nom" : ColumnDefn(_(u"Nom"), 'left', 210, "nomCotisation", typeDonnee="texte"),
             "type_cotisation" : ColumnDefn(_(u"Type"), 'left', 210, "nomTypeCotisation", typeDonnee="texte"),
             "unite_cotisation" : ColumnDefn(_(u"Unit√©"), 'left', 90, "nomUniteCotisation", typeDonnee="texte"),
@@ -527,6 +532,16 @@ class ListView(FastObjectListView):
             "regle" : ColumnDefn(_(u"R√©gl√©"), 'left', 70, "ventilation", typeDonnee="montant", stringConverter=FormateMontant), 
             "date_reglement" : ColumnDefn(_(u"Date r√©glement"), 'left', 80, "dateReglement", typeDonnee="date", stringConverter=FormateDate), 
             "mode_reglement" : ColumnDefn(_(u"Mode r√©glement"), 'left', 80, "modeReglement", typeDonnee="texte"), 
+=======
+            "nom" : ColumnDefn(_(u"Nom de la cotisation"), 'left', 210, "nomCotisation", typeDonnee="texte"),
+            "type_cotisation" : ColumnDefn(_(u"Type de la cotisation"), 'left', 210, "nomTypeCotisation", typeDonnee="texte"),
+            "unite_cotisation" : ColumnDefn(_(u"UnitÈ de la cotisation"), 'left', 90, "nomUniteCotisation", typeDonnee="texte"),
+            "numero" : ColumnDefn(_(u"NumÈro de la cotisation"), 'left', 70, "numero", typeDonnee="texte"),
+            "montant" : ColumnDefn(_(u"Montant de la cotisation"), 'left', 70, "montant", typeDonnee="montant", stringConverter=FormateMontant),
+            "regle" : ColumnDefn(_(u"RÈglÈ"), 'left', 70, "ventilation", typeDonnee="montant", stringConverter=FormateMontant), 
+            "date_reglement" : ColumnDefn(_(u"Date rÈglement"), 'left', 80, "dateReglement", typeDonnee="date", stringConverter=FormateDate), 
+            "mode_reglement" : ColumnDefn(_(u"Mode rÈglement"), 'left', 80, "modeReglement", typeDonnee="texte"), 
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
             "solde" : ColumnDefn(_(u"Solde"), 'left', 80, "solde", typeDonnee="montant", stringConverter=FormateMontant, imageGetter=GetImageVentilation), 
             "date_creation_carte" : ColumnDefn(_(u"Cr√©ation carte"), 'left', 100, "date_creation_carte", typeDonnee="date", stringConverter=FormateDate, imageGetter=GetImageCreation), 
             "depot_nom" : ColumnDefn(_(u"D√©p√¥t carte"), 'left', 100, "depotStr", typeDonnee="texte", imageGetter=GetImageDepot), 

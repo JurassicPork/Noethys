@@ -234,6 +234,7 @@ class Panel(wx.Panel):
         self.check_cotisations = wx.CheckBox(self, -1, _(u"Cotisations"))
         self.check_locations = wx.CheckBox(self, -1, _(u"Locations"))
         self.check_autres = wx.CheckBox(self, -1, _(u"Autres"))
+        self.check_inclure_cotisations_si_conso = wx.CheckBox(self, -1, _(u"Inclure cotisations uniquement si famille sur activitÈs cochÈes"))
         
         # Familles
         self.box_familles_staticbox = wx.StaticBox(self, -1, _(u"S√©lection des familles"))
@@ -295,7 +296,12 @@ class Panel(wx.Panel):
         self.check_cotisations.SetToolTip(wx.ToolTip(_(u"Cochez cette case pour inclure les prestations de cotisations")))
         self.check_locations.SetToolTip(wx.ToolTip(_(u"Cochez cette case pour inclure les prestations de locations")))
         self.check_autres.SetToolTip(wx.ToolTip(_(u"Cochez cette case pour inclure les autres types de prestations")))
+<<<<<<< HEAD
         self.radio_familles_toutes.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour rechercher les factures de toutes les familles (par d√©faut)")))
+=======
+        self.check_inclure_cotisations_si_conso.SetToolTip(wx.ToolTip(_(u"Les cotisation ne seront intÈgrÈes ‡ la facture que si la famille a des consommations sur les activitÈs sÈlectionnÈes")))
+        self.radio_familles_toutes.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour rechercher les factures de toutes les familles (par dÈfaut)")))
+>>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
         self.radio_familles_unique.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour rechercher les factures d'une seule famille")))
         self.ctrl_famille.SetToolTip(wx.ToolTip(_(u"S√©lectionnez ici une famille")))
         self.check_prestations_anterieures.SetToolTip(wx.ToolTip(_(u"Cochez cette case pour inclure les prestations ant√©rieures √† la date de d√©but non factur√©es depuis la date souhait√©e")))
@@ -387,7 +393,9 @@ class Panel(wx.Panel):
         grid_sizer_elements.Add(self.check_cotisations, 0, 0, 0)
         grid_sizer_elements.Add(self.check_locations, 0, 0, 0)
         grid_sizer_elements.Add(self.check_autres, 0, 0, 0)
-        box_elements.Add(grid_sizer_elements, 1, wx.ALL|wx.EXPAND, 10)
+        box_elements.Add(grid_sizer_elements, 1, wx.LEFT|wx.RIGHT|wx.TOP|wx.EXPAND, 10)
+        box_elements.Add( (5, 5), 0, wx.EXPAND, 0)
+        box_elements.Add(self.check_inclure_cotisations_si_conso, 1, wx.LEFT|wx.RIGHT|wx.BOTTOM|wx.EXPAND, 10)
         grid_sizer_droit.Add(box_elements, 1, wx.EXPAND, 0)
 
         # Inclure prestations ant√©rieures
@@ -629,6 +637,7 @@ class Panel(wx.Panel):
             "mention1" : self.ctrl_mention1.GetValue(),
             "mention2" : self.ctrl_mention2.GetValue(),
             "mention3" : self.ctrl_mention3.GetValue(),
+            "inclure_cotisations_si_conso": self.check_inclure_cotisations_si_conso.GetValue(),
             }
 
         return True
