@@ -200,7 +200,7 @@ class ListView(FastObjectListView):
 
         # Image list
         dictImages = {"standard":{}, "modes":{}, "emetteurs":{} }
-        imageList = wx.ImageList(taille[0], taille[1])
+        imageList = wx.ImageList(int(taille[0]), int(taille[1]))
 
         # Images standard
         dictImages["standard"]["vert"] = imageList.Add(self.ConvertTailleImage(wx.Bitmap(Chemins.GetStaticPath("Images/16x16/Ventilation_vert.png"), wx.BITMAP_TYPE_PNG), taille))
