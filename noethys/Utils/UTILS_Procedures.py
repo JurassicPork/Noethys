@@ -79,7 +79,7 @@ DICT_PROCEDURES = {
     "A9072" : _(u"Statistiques du tarif à un euro"),
     "A9274" : _(u"Custom SMDH - Suppression activites"),
     "A9277" : _(u"Ajout du champ code_service"),
-    "A9279" : _(u"Recherche les factures avec ventilation sup�rieure au montant de la facture"),
+    "A9279" : _(u"Recherche les factures avec ventilation supérieure au montant de la facture"),
 }
 
 

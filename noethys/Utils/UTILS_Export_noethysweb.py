@@ -923,7 +923,7 @@ class Table_consommations(Table):
 
 class Table_evenements(Table):
     def __init__(self, parent, **kwds):
-        # Importe les unités de conso
+        # Importe les unitÃ©s de conso
         req = """SELECT IDunite, nom FROM unites;"""
         parent.DB.ExecuterReq(req)
         self.dictUnites = {}
@@ -933,7 +933,7 @@ class Table_evenements(Table):
         del self.dictUnites
 
     def valide_ligne(self, data={}):
-        """ Incorpore la ligne uniquement l'unité associée existe"""
+        """ Incorpore la ligne uniquement l'unitÃ© associÃ©e existe"""
         if data["fields"]["unite"] not in self.dictUnites:
             print("Table evenements : l'unite n'existe pas pour l'evenement ID%d" % data["pk"])
             return False
@@ -1687,7 +1687,7 @@ class Table_modeles_prelevements(Table):
 
         liste_xml = []
         for index, dict_modele in enumerate(liste_modeles, start=1):
-            dict_modele["nom"] = u"Modèle %d" % index
+            dict_modele["nom"] = u"ModÃ¨le %d" % index
             liste_xml.append({"model": "core.PrelevementsModele", "pk": index, "fields": dict_modele})
         return liste_xml
 
