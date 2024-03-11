@@ -256,14 +256,8 @@ class ListView(FastObjectListView):
             ColumnDefn(_(u"Num√©ro"), 'left', 60, "numero_piece", typeDonnee="texte"),
             ColumnDefn(_(u"Payeur"), 'left', 130, "nom_payeur", typeDonnee="texte"),
             ColumnDefn(_(u"Montant"), 'right', 60, "montant", typeDonnee="montant", stringConverter=FormateMontant),
-<<<<<<< HEAD
             ColumnDefn(_(u"Ventil√©"), 'right', 80, "montant_ventilation", typeDonnee="montant", stringConverter=FormateMontant, imageGetter=GetImageVentilation),
             ColumnDefn(_(u"D√©p√¥t"), 'left', 90, "date_depot", typeDonnee="date", stringConverter=FormateDateCourt, imageGetter=GetImageDepot),
-=======
-            ColumnDefn(_(u"VentilÈ"), 'right', 80, "montant_ventilation", typeDonnee="montant", stringConverter=FormateMontant, imageGetter=GetImageVentilation),
-            ColumnDefn(_(u"DÈpÙt"), 'left', 90, "date_depot", typeDonnee="date", stringConverter=FormateDateCourt, imageGetter=GetImageDepot),
-            ColumnDefn(_(u"Observations"), 'left', 130, "observations", typeDonnee="texte"),
->>>>>>> ff5d149acb272662379069f7d1c9a97262e6fc88
             ]
 
         if self.mode == "liste" :

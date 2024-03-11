@@ -77,13 +77,12 @@ def GetListe(listeActivites=None, presents=None, archives=False):
         req = """SELECT IDindividu, IDinscription
         FROM consommations
         WHERE date>='%s' AND date<='%s' AND consommations.etat IN ('reservation', 'present') %s
-        GROUP BY IDindividu, IDinscription
+        GROUP BY IDindividu
         ;"""  % (str(presents[0]), str(presents[1]), conditionActivites.replace("inscriptions", "consommations"))
         DB.ExecuterReq(req)
         listeIndividusPresents = DB.ResultatReq()
         for IDindividu, IDinscription in listeIndividusPresents :
-            if IDindividu not in listePresents:
-                listePresents.append(IDindividu)
+            listePresents.append(IDindividu)
 
     # Récupération des individus
     listeChamps = (
