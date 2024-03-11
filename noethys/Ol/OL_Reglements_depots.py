@@ -173,11 +173,11 @@ class ListView(FastObjectListView):
     def ConvertTailleImage(self, bitmap=None, taille=None):
         """ Convertit la taille d'une image """
         if 'phoenix' in wx.PlatformInfo:
-            img = wx.Image(taille[0], taille[1], True)
-            img.SetRGB((0, 0, taille[0], taille[1]), 255, 255, 255)
+            img = wx.Image(int(taille[0]), int(taille[1]), True)
+            img.SetRGB((0, 0, int(taille[0]), int(taille[1])), 255, 255, 255)
         else :
-            img = wx.EmptyImage(taille[0], taille[1], True)
-            img.SetRGBRect((0, 0, taille[0], taille[1]), 255, 255, 255)
+            img = wx.EmptyImage(int(taille[0]), int(taille[1]), True)
+            img.SetRGBRect((0, 0, int(taille[0]), int(taille[1])), 255, 255, 255)
         bmp = img.ConvertToBitmap()
         dc = wx.MemoryDC()
         dc.SelectObject(bmp)
