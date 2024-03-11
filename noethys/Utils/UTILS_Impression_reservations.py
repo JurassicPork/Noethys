@@ -19,7 +19,11 @@ import datetime
 
 from Utils import UTILS_Organisateur
 from Utils import UTILS_Config
+from Utils import UTILS_Customize
 SYMBOLE = UTILS_Config.GetParametre("monnaie_symbole", u"€")
+
+
+
 
 
 def DateEngFr(textDate):
