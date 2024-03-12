@@ -36,8 +36,12 @@ cette commande installe aussi les fichiers python pour mysql (plus besoin de met
 
 Il faut configurer mysql pour qu'il soit accessible depuis noethys ( user password adresses réseau).
 
-voici un exemple de configuration :
+Il y a ici [installing_mysql_workbench_ubuntu](https://linuxhint.com/installing_mysql_workbench_ubuntu/) un tutoriel en angliche pour configurer mysql sur un Ubuntu 22.04
+
+voici un exemple de configuration (ici j'utilise adminer au lieu de myqlworkbench) :
+
 côté serveur : 
+
 utilisation de **adminer** pour gérer mysql
 ![adminer](images/adminer.png)
 
@@ -50,6 +54,7 @@ visualisation des utilisateurs pour une des bases de données Noethys :
 
 ![Privileges](images/Privileges.png)
 
+côté client :
 
 ouvrir un fichier réseau côté Noethys :
 
