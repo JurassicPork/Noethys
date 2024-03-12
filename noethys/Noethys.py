@@ -337,7 +337,9 @@ class MainFrame(wx.Frame):
         
     def OnClose(self, event):
         if self.Quitter() == False :
-            return
+            dlg = wx.MessageDialog(self, _(u"Il y a eu une erreur sur le Quitter (Sauvegarde Auto ?) !"), "Erreur", wx.OK | wx.ICON_ERROR)
+            dlg.ShowModal()
+            dlg.Destroy()
         event.Skip()
         
     def Quitter(self, videRepertoiresTemp=True, sauvegardeAuto=True):
