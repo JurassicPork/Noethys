@@ -34,18 +34,23 @@ sudo apt-get install mysql-client mysql-server python3-mysql.connector python3-m
 
 cette commande installe aussi les fichiers python pour mysql (plus besoin de mettre mysql dans les requirements)
 
-Il faut configurer mysql pour qu'il soit accessible depuis noethys ( user password adresses réseau)
+Il faut configurer mysql pour qu'il soit accessible depuis noethys ( user password adresses réseau).
 
 voici un exemple de configuration :
 côté serveur : 
-utilisation de adminer pour gérer mysql
+utilisation de **adminer** pour gérer mysql
 ![adminer](images/adminer.png)
 
-visualisation des bases de données (les bases commençant par cdl ont été créées par Convertir en fichier réseau dans Noethys)
+visualisation des bases de données (les bases commençant par cdl ont été créées par **Convertir en fichier réseau** dans Noethys) :
+
 ![select Database](images/selectDatabase.png)
 
-visualisation des utilisateurs pour une des bases de données Noethys
+
+visualisation des utilisateurs pour une des bases de données Noethys :
+
 ![Privileges](images/Privileges.png)
 
-ouvrir fichier réseau côté Noethys
+
+ouvrir un fichier réseau côté Noethys :
+
 ![Open Network File](images/openNetworkFile.png)
