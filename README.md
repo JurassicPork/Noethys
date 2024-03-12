@@ -54,3 +54,8 @@ visualisation des utilisateurs pour une des bases de données Noethys :
 ouvrir un fichier réseau côté Noethys :
 
 ![Open Network File](images/openNetworkFile.png)
+
+
+Infos sur le fichier réseau :
+
+![Infos Network File](images/InfosNetworkFile.png)
