@@ -25,10 +25,27 @@ pip3 install -r Noethys/requirements.txt
 python3 Noethys/noethys/Noethys.py
 ```
 
-
-
-Installation depuis les sources
+Installation de mysql 8.0 
 ------------------
-Si vous rencontrez les difficultés d'installation ou souhaitez installer Noethys depuis les sources,
-consultez les documents dédiés ici : https://github.com/Noethys/Noethys/tree/master/noethys/Doc
+Lancez dans votre console Linux la commande suivante :
+```
+sudo apt-get install mysql-client mysql-server python3-mysql.connector python3-mysqldb python3-pymysql
+```
 
+cette commande installe aussi les fichiers python pour mysql (plus besoin de mettre mysql dans les requirements)
+
+Il faut configurer mysql pour qu'il soit accessible depuis noethys ( user password adresses réseau)
+
+voici un exemple de configuration :
+côté serveur : 
+utilisation de adminer pour gérer mysql
+![adminer](images/adminer.png)
+
+visualisation des bases de données (les bases commençant par cdl ont été créées par Convertir en fichier réseau dans Noethys)
+![select Database](images/selectDatabase.png)
+
+visualisation des utilisateurs pour une des bases de données Noethys
+![Privileges](images/Privileges.png)
+
+ouvrir fichier réseau côté Noethys
+![Open Network File](images/openNetworkFile.png)
