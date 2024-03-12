@@ -43,6 +43,7 @@ voici un exemple de configuration (ici j'utilise adminer au lieu de myqlworkbenc
 côté serveur : 
 
 utilisation de **adminer** pour gérer mysql
+
 ![adminer](images/adminer.png)
 
 visualisation des bases de données (les bases commençant par cdl ont été créées par **Convertir en fichier réseau** dans Noethys) :
