@@ -38,7 +38,7 @@ Il faut configurer mysql pour qu'il soit accessible depuis noethys ( user passwo
 
 Il y a ici [installing_mysql_workbench_ubuntu](https://linuxhint.com/installing_mysql_workbench_ubuntu/) un tutoriel en angliche pour configurer mysql sur un Ubuntu 22.04
 
-voici un exemple de configuration (ici j'utilise adminer au lieu de myqlworkbench) :
+voici un exemple de configuration (ici j'utilise **adminer** au lieu de **mysql-workbench**) :
 
 côté serveur : 
 
