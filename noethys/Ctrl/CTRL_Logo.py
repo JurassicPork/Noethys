@@ -150,7 +150,7 @@ class CTRL(wx.StaticBitmap):
             else:
                 largeur = largeur * tailleMaxi / hauteur
                 hauteur = tailleMaxi
-##            imgPIL = imgPIL.resize((largeur, hauteur), Image.ANTIALIAS)
+##            imgPIL = imgPIL.resize((largeur, hauteur), Image.LANCZOS)
             img.Rescale(width=largeur, height=hauteur, quality=wx.IMAGE_QUALITY_HIGH)
         
         # Conserve l'image en mémoire

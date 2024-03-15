@@ -51,7 +51,7 @@ class CTRL(wx.Button):
         # Redimensionne et ajoute des marges autour de l'image
         if self.cheminImage not in ("", None) :
             img = Image.open(Chemins.GetStaticPath(self.cheminImage))
-            img = img.resize(self.tailleImage, Image.ANTIALIAS)
+            img = img.resize(self.tailleImage, Image.LANCZOS)
             img = ImageOps.expand(img, border=self.margesImage)
             img = PILtoWx(img) 
             bmp = img.ConvertToBitmap()
