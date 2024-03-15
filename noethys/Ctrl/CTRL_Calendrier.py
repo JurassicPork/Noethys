@@ -969,13 +969,17 @@ class CTRL(wx.Panel):
         self.listeMois = [_(u"Janvier"), _(u"février"), _(u"Mars"), _(u"Avril"), _(u"Mai"), _(u"Juin"), _(u"Juillet"), _(u"août"), _(u"Septembre"), _(u"Octobre"), _(u"Novembre"), _(u"Décembre")]
         if "linux" in sys.platform :
             self.listeMois = [_(u"Janv."), _(u"fév."), _(u"Mars"), _(u"Avril"), _(u"Mai"), _(u"Juin"), _(u"Juil."), _(u"août"), _(u"Sept."), _(u"Oct."), _(u"Nov."), _(u"Déc.")]
-        self.combo_mois = wx.ComboBox(self, -1, "" , (-1, -1) , (70, -1), self.listeMois , wx.CB_READONLY)
-        
-        self.spin = wx.SpinButton(self, -1, size=(17, 20),  style=wx.SP_VERTICAL)
+        self.combo_mois = wx.ComboBox(self, -1, "" , (-1, -1) , (70, -1), self.listeMois , wx.CB_READONLY)        
+        if 'gtk3' in wx.PlatformInfo:
+            self.spin = wx.SpinButton(self, -1, size=(72, 20),  style=wx.SP_VERTICAL)
+        else:
+            self.spin = wx.SpinButton(self, -1, size=(17, 20),  style=wx.SP_VERTICAL)
         self.spin.SetRange(-1, 1)
         
         if "linux" in sys.platform :
             largeurMois = 75
+            if 'gtk3' in wx.PlatformInfo:
+                largeurMois = 150
         else:
             largeurMois = 55
 

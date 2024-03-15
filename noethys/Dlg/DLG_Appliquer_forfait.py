@@ -435,7 +435,7 @@ class Forfaits():
                                         # Recherche QF de la famille
                                         QFfamille = self.RechercheQF(dictQuotientsFamiliaux, dictTarif, self.IDfamille, date_facturation)
                                         if QFfamille == None:
-                                            dlg = wx.MessageDialog(None, _(u"Le tarif est basé sur le taux d'effort alors que cette famille n'a aucun quotient valide !"), "Erreur", wx.OK | wx.ICON_ERROR)
+                                            dlg = wx.MessageDialog(None, _(u"Le tarif est basÃ© sur le taux d'effort alors que cette famille n'a aucun quotient valide !"), "Erreur", wx.OK | wx.ICON_ERROR)
                                             dlg.ShowModal()
                                             dlg.Destroy()
                                             return False

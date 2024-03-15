@@ -35,7 +35,10 @@ COULEUR_GAUGE_FOND = (255, 255, 255)
 
 class CTRL(HTL.HyperTreeList):
     def __init__(self, parent):
-        HTL.HyperTreeList.__init__(self, parent, -1)
+        if 'gtk3' in wx.PlatformInfo:
+            HTL.HyperTreeList.__init__(self, parent, -1,size=(100,100))
+        else:
+            HTL.HyperTreeList.__init__(self, parent, -1)
         self.parent = parent
         self.listeActivites = []
         self.filtre = None
@@ -698,14 +701,14 @@ class CTRL(HTL.HyperTreeList):
         else:
             FonctionsPerso.LanceFichierExterne(cheminFichier)
 
-
-
-
 # ----------------------------------------------------------------------------------------------------------------------        
 
 class Panel(wx.Panel):
     def __init__(self, parent):
-        wx.Panel.__init__(self, parent, id=-1, style=wx.TAB_TRAVERSAL)
+        if 'gtk3' in wx.PlatformInfo:
+            wx.Panel.__init__(self, parent, id=-1, style=wx.TAB_TRAVERSAL,size=(100,100))
+        else: 
+            wx.Panel.__init__(self, parent, id=-1, style=wx.TAB_TRAVERSAL)
         self.parent = parent
 
         # Messages

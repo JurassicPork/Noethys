@@ -107,7 +107,10 @@ ID_TB_UTILISATEUR = wx.Window.NewControlId()
 
 class MainFrame(wx.Frame):
     def __init__(self, parent):
-        wx.Frame.__init__(self, parent, -1, title=_(u"Noethys"), name="general", style=wx.DEFAULT_FRAME_STYLE)
+        if 'gtk3' in wx.PlatformInfo:
+            wx.Frame.__init__(self, parent, -1, title=_(u"Noethys"), name="general", style=wx.DEFAULT_FRAME_STYLE,size=(40,40))
+        else:
+            wx.Frame.__init__(self, parent, -1, title=_(u"Noethys"), name="general", style=wx.DEFAULT_FRAME_STYLE)        
 
 ##        # Dates en francais
 ##        wx.Locale(wx.LANGUAGE_FRENCH)
@@ -337,7 +340,7 @@ class MainFrame(wx.Frame):
         
     def OnClose(self, event):
         if self.Quitter() == False :
-            dlg = wx.MessageDialog(self, _(u"Il y a eu une erreur sur le Quitter (Sauvegarde Auto ?) !"), "Erreur", wx.OK | wx.ICON_ERROR)
+            dlg = wx.MessageDialog(self, _(u"Il y a eu un souci sur le Quitter (Sauvegarde Auto ?) !"), "Avertissement", wx.OK | wx.ICON_WARNING)
             dlg.ShowModal()
             dlg.Destroy()
         event.Skip()
@@ -4460,6 +4463,7 @@ class MyApp(wx.App):
 class Redirect(object):
     def __init__(self, nomJournal=""):
         self.filename = open(nomJournal, "a")
+        self.flush = self.filename.flush
 
     def write(self, text):
         if self.filename.closed:

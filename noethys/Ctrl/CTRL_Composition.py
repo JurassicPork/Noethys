@@ -446,9 +446,9 @@ class CadreIndividu():
             self.dc.SetBrush(wx.Brush((0, 0, 0), style=wx.TRANSPARENT))
             self.dc.SetPen(wx.Pen(couleurSelectionCadre, 1, wx.DOT))
             if 'phoenix' in wx.PlatformInfo:
-                self.dc.DrawRoundedRectangle(wx.Rect(int(x-ecart), int(y-ecart), int(largeur+(ecart*2)), int(hauteur+(ecart*2))), radius=int(5*self.zoom))
+                self.dc.DrawRoundedRectangle(wx.Rect(int(x-ecart), int(y-ecart), int(largeur+(ecart*2)), int(hauteur+(ecart*2))), int(5*self.zoom))
             else :
-                self.dc.DrawRoundedRectangleRect(wx.Rect(int(x-ecart), int(y-ecart), int(largeur+(ecart*2)), int(hauteur+(ecart*2))), int(radius=5*self.zoom))
+                self.dc.DrawRoundedRectangleRect(wx.Rect(int(x-ecart), int(y-ecart), int(largeur+(ecart*2)), int(hauteur+(ecart*2))), int(5*self.zoom))
 
         # Dessin du cadre
         self.dc.SetBrush(wx.Brush(couleurFondBasCadre))
@@ -457,9 +457,9 @@ class CadreIndividu():
             if "linux" in sys.platform:
                 self.dc.DrawRectangle(wx.Rect(int(x), int(y), int(largeur), int(hauteur)))
             else:
-                self.dc.DrawRoundedRectangle(wx.Rect(int(x), int(y), int(largeur), int(hauteur)), int(radius=5*self.zoom))
+                self.dc.DrawRoundedRectangle(wx.Rect(int(x), int(y), int(largeur), int(hauteur)), int(5*self.zoom))
         else :
-            self.dc.DrawRoundedRectangleRect(wx.Rect(int(x), int(y), int(largeur), int(hauteur)), int(radius=5*self.zoom))
+            self.dc.DrawRoundedRectangleRect(wx.Rect(int(x), int(y), int(largeur), int(hauteur)), int(5*self.zoom))
 
         if "linux" not in sys.platform:
             coordsSpline = [(int(x+1), int(y+(hauteur/3))), (int(x+(largeur/2.5)), int(y+(hauteur/4.1))), (int(x+largeur-1), int(y+(hauteur/1.8)))]

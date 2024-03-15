@@ -106,7 +106,10 @@ class MyFrame(wx.Frame):
 
 class Dialog(wx.Dialog):
     def __init__(self, parent, id=-1, title=_(u"Identification"), listeUtilisateurs=[], nomFichier=None):
-        wx.Dialog.__init__(self, parent, id, title, name="DLG_mdp")
+        if 'gtk3' in wx.PlatformInfo:
+            wx.Dialog.__init__(self, parent, id, title, name="DLG_mdp", size=(40,40))
+        else:
+            wx.Dialog.__init__(self, parent, id, title, name="DLG_mdp")
         self.parent = parent
         self.listeUtilisateurs = listeUtilisateurs
         self.nomFichier = nomFichier

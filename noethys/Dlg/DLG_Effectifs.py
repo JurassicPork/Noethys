@@ -25,7 +25,10 @@ from Dlg import DLG_Tableau_bord_locations
 
 class CTRL(aui.AuiNotebook):
     def __init__(self, parent):
-        aui.AuiNotebook.__init__(self, parent, agwStyle=aui.AUI_NB_BOTTOM | aui.AUI_NB_TAB_EXTERNAL_MOVE | aui.AUI_NB_TAB_SPLIT | aui.AUI_NB_TAB_MOVE ) 
+        if 'gtk3' in wx.PlatformInfo:
+            aui.AuiNotebook.__init__(self, parent,agwStyle=aui.AUI_NB_BOTTOM | aui.AUI_NB_TAB_EXTERNAL_MOVE | aui.AUI_NB_TAB_SPLIT | aui.AUI_NB_TAB_MOVE,size=(500,100))
+        else:
+            aui.AuiNotebook.__init__(self, parent, agwStyle=aui.AUI_NB_BOTTOM | aui.AUI_NB_TAB_EXTERNAL_MOVE | aui.AUI_NB_TAB_SPLIT | aui.AUI_NB_TAB_MOVE ) 
         self.parent = parent
         
         # CTRL Remplissage
