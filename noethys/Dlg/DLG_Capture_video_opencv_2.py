@@ -222,7 +222,7 @@ class Dialog(wx.Dialog):
         if etat == True :
             self.ctrl_video.StartVideo()
         else:
-            dlg = wx.MessageDialog(self, _(u"Noethys n'a pas réussi à se connecter à la caméra.\nVeuillez Vérifier que celle-ci est bien installée..."), _(u"Erreur"), wx.OK | wx.ICON_ERROR)
+            dlg = wx.MessageDialog(self, _(u"Noethys n'a pas réussi à se connecter à la caméra.\nVeuillez vérifier que celle-ci est bien installée..."), _(u"Erreur"), wx.OK | wx.ICON_ERROR)
             dlg.ShowModal()
             dlg.Destroy()
 
@@ -279,7 +279,7 @@ class Dialog(wx.Dialog):
         UTILS_Aide.Aide("Photo")
 
     def OnBoutonOptions(self, event): 
-        # création du menu contextuel
+        # Création du menu contextuel
         menuPop = UTILS_Adaptations.Menu()
         
         sousMenuPort = UTILS_Adaptations.Menu()

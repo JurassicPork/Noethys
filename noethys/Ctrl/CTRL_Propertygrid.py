@@ -198,7 +198,7 @@ class Propriete_multichoix(ArrayStringProperty):
 
     def OnEvent(self, propgrid, primaryEditor, event):
         if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
-            dlg = wx.MultiChoiceDialog(propgrid, _(u"Cochez les éléments à sélectionner :"), _(u"sélection"), [x[1] for x in self.liste_choix])
+            dlg = wx.MultiChoiceDialog(propgrid, _(u"Cochez les éléments à sélectionner :"), _(u"Sélection"), [x[1] for x in self.liste_choix])
             liste_index = []
             index = 0
             for id, valeur in self.liste_choix :
@@ -305,7 +305,7 @@ class EditeurComboBoxAvecBoutons(ChoiceEditor):
 
         # Add two regular buttons
         buttons.AddBitmapButton(wx.Bitmap(Chemins.GetStaticPath("Images/16x16/Mecanisme.png"), wx.BITMAP_TYPE_PNG))
-        buttons.GetButton(0).SetToolTip(wx.ToolTip(_(u"Cliquez ici pour accéder à la gestion des paramêtres")))
+        buttons.GetButton(0).SetToolTip(wx.ToolTip(_(u"Cliquez ici pour accéder à la gestion des paramètres")))
         
         # Create the 'primary' editor control (textctrl in this case)
         if 'phoenix' in wx.PlatformInfo:
@@ -480,7 +480,7 @@ class CTRL(wxpg.PropertyGrid) :
         wxpg.PropertyGrid.__init__(self, parent, -1, style=style)
         self.parent = parent
         
-        # définition des éditeurs personnalisés
+        # Définition des éditeurs personnalisés
         if not getattr(sys, '_PropGridEditorsRegistered', False):
             self.RegisterEditor(EditeurComboBoxAvecBoutons)
             self.RegisterEditor(EditeurHeure)
@@ -500,7 +500,7 @@ class CTRL(wxpg.PropertyGrid) :
         # Remplissage du contrôle
         self.Remplissage() 
         
-        # mémorisation des valeurs par défaut
+        # Mémorisation des valeurs par défaut
         self.dictValeursDefaut = self.GetPropertyValues()
         
         # Importation des valeurs
@@ -513,7 +513,7 @@ class CTRL(wxpg.PropertyGrid) :
     def Reinitialisation(self, afficher_dlg=True):
         # Demande confirmation
         if afficher_dlg == True :
-            dlg = wx.MessageDialog(None, _(u"Souhaitez-vous vraiment réinitialiser tous les paramêtres ?"), _(u"Paramêtres par défaut"), wx.YES_NO|wx.NO_DEFAULT|wx.CANCEL|wx.ICON_QUESTION)
+            dlg = wx.MessageDialog(None, _(u"Souhaitez-vous vraiment réinitialiser tous les paramètres ?"), _(u"Paramètres par défaut"), wx.YES_NO|wx.NO_DEFAULT|wx.CANCEL|wx.ICON_QUESTION)
             reponse = dlg.ShowModal()
             dlg.Destroy()
             if reponse != wx.ID_YES :
@@ -537,7 +537,7 @@ class Bouton_reinitialisation(wx.BitmapButton):
     def __init__(self, parent, ctrl_parametres=None):
         wx.BitmapButton.__init__(self, parent, -1, wx.Bitmap(Chemins.GetStaticPath(u"Images/16x16/Actualiser.png"), wx.BITMAP_TYPE_ANY))
         self.ctrl_parametres = ctrl_parametres
-        self.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour réinitialiser tous les paramêtres")))
+        self.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour réinitialiser tous les paramètres")))
         self.Bind(wx.EVT_BUTTON, self.OnBouton)
     
     def OnBouton(self, event):
@@ -547,7 +547,7 @@ class Bouton_sauvegarde(wx.BitmapButton):
     def __init__(self, parent, ctrl_parametres=None):
         wx.BitmapButton.__init__(self, parent, -1, wx.Bitmap(Chemins.GetStaticPath(u"Images/16x16/Sauvegarder.png"), wx.BITMAP_TYPE_ANY))
         self.ctrl_parametres = ctrl_parametres
-        self.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour mémoriser tous les paramêtres")))
+        self.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour mémoriser tous les paramètres")))
         self.Bind(wx.EVT_BUTTON, self.OnBouton)
     
     def OnBouton(self, event):
@@ -568,22 +568,22 @@ class CTRL_TEST(CTRL) :
 
         # CTRL Heure
         propriete = wxpg.StringProperty(label=_(u"Heure"), name="heure")
-        propriete.SetHelpString(_(u"sélectionnez une heure"))
+        propriete.SetHelpString(_(u"Sélectionnez une heure"))
         propriete.SetEditor("EditeurHeure")
         self.Append(propriete)
 
         # CTRL Date
         propriete = wxpg.StringProperty(label=_(u"Date"), name="date", value=UTILS_Dates.DateDDEnFr(datetime.date.today()))
-        propriete.SetHelpString(_(u"sélectionnez une date"))
+        propriete.SetHelpString(_(u"Sélectionnez une date"))
         propriete.SetEditor("EditeurDate")
         self.Append(propriete)
 
         # Catégorie 
-        self.Append( wxpg.PropertyCategory(_(u"mémorisation")) )
+        self.Append( wxpg.PropertyCategory(_(u"Mémorisation")) )
         
-        # mémorisation des paramêtres
-        propriete = wxpg.EnumProperty(label=_(u"mémoriser les paramêtres"), name="memoriser_parametres", labels=[_(u"Non"), _(u"Uniquement sur cet ordinateur"), _(u"Pour tous les ordinateurs")], values=[0, 1, 3] , value=3)
-        propriete.SetHelpString(_(u"mémoriser les paramêtres")) 
+        # Mémorisation des paramètres
+        propriete = wxpg.EnumProperty(label=_(u"Mémoriser les paramètres"), name="memoriser_parametres", labels=[_(u"Non"), _(u"Uniquement sur cet ordinateur"), _(u"Pour tous les ordinateurs")], values=[0, 1, 3] , value=3)
+        propriete.SetHelpString(_(u"Mémoriser les paramètres")) 
         self.Append(propriete)
 
         # Répertoire de sauvegarde
@@ -591,7 +591,7 @@ class CTRL_TEST(CTRL) :
             propriete = wxpg.DirProperty(name=_(u"Répertoire pour copie unique"), label="repertoire_copie", value="")
         else:
             propriete = wxpg.DirProperty(label=_(u"Répertoire pour copie unique"), name="repertoire_copie", value="")
-        propriete.SetHelpString(_(u"Enregistrer une copie unique de chaque document dans le Répertoire sélectionné")) 
+        propriete.SetHelpString(_(u"Enregistrer une copie unique de chaque document dans le répertoire sélectionné")) 
         self.Append(propriete)
 
         # Catégorie 
@@ -658,20 +658,20 @@ class CTRL_TEST(CTRL) :
         # Catégorie 
         self.Append( wxpg.PropertyCategory(_(u"Tableau des prestations")) )
 
-        # Affichage condensé ou Détaillné
-        propriete = wxpg.EnumProperty(label=_(u"Affichage des prestations"), name="affichage_prestations", labels=[_(u"Détaillné"), _(u"Condensé")], values=[0, 1] , value=0)
-        propriete.SetHelpString(_(u"sélectionnez un type d'affichage")) 
+        # Affichage condensé ou Détaillé
+        propriete = wxpg.EnumProperty(label=_(u"Affichage des prestations"), name="affichage_prestations", labels=[_(u"Détaillé"), _(u"Condensé")], values=[0, 1] , value=0)
+        propriete.SetHelpString(_(u"Sélectionnez un type d'affichage")) 
         self.Append(propriete)
 
-        # intitulés des prestations
-        labels = [_(u"intitulé original"), _(u"intitulé original + état 'Absence injustifinée'"), _(u"Nom du tarif"), _(u"Nom de l'activité")]
-        propriete = wxpg.EnumProperty(label=_(u"intitulés des prestations"), name="intitules", labels=labels, values=[0, 1, 2, 3] , value=0)
-        propriete.SetHelpString(_(u"sélectionnez le type d'intitulé à afficher pour les prestations")) 
+        # Intitulés des prestations
+        labels = [_(u"Intitulé original"), _(u"Intitulé original + état 'Absence injustifiée'"), _(u"Nom du tarif"), _(u"Nom de l'activité")]
+        propriete = wxpg.EnumProperty(label=_(u"Intitulés des prestations"), name="intitules", labels=labels, values=[0, 1, 2, 3] , value=0)
+        propriete.SetHelpString(_(u"électionnez le type d'intitulé à afficher pour les prestations")) 
         self.Append(propriete)
         
         # Couleur 1
         propriete = wxpg.ColourProperty(label=_(u"Couleur de fond 1"), name="couleur_fond_1", value=wx.Colour(255, 0, 0) )
-        propriete.SetHelpString(_(u"sélectionnez la couleur 1")) 
+        propriete.SetHelpString(_(u"Sélectionnez la couleur 1")) 
         self.Append(propriete)
         
         # Couleur 2
@@ -680,7 +680,7 @@ class CTRL_TEST(CTRL) :
         self.Append(propriete)
         
         # Largeur colonne Date
-        propriete = wxpg.IntProperty(label=_(u"Largeur de la colonne Date (ou Qtné)"), name="largeur_colonne_date", value=50)
+        propriete = wxpg.IntProperty(label=_(u"Largeur de la colonne Date (ou Qté)"), name="largeur_colonne_date", value=50)
         propriete.SetHelpString(_(u"Saisissez la largeur de la colonne Date (50 par défaut)")) 
         self.Append(propriete)
         self.SetPropertyEditor("largeur_colonne_date", "SpinCtrl")
@@ -754,9 +754,9 @@ class CTRL_TEST(CTRL) :
         dictValeurs = copy.deepcopy(self.GetPropertyValues())
 ##        for nom, valeur in dictValeurs.iteritems() :
 ##            print (nom, valeur, str(type(valeur)))
-        # Recherche les paramêtres mémorisés
+        # Recherche les paramètres mémorisés
         dictParametres = UTILS_Parametres.ParametresCategorie(mode="get", categorie="impression_facture", dictParametres=dictValeurs)
-        # Envoie les paramêtres dans le contrôle
+        # Envoie les paramètres dans le contrôle
         for nom, valeur in dictParametres.items() :
             propriete = self.GetPropertyByName(nom)
             # propriete
@@ -764,7 +764,7 @@ class CTRL_TEST(CTRL) :
             propriete.SetValue(valeur)
     
     def Sauvegarde(self):
-        """ mémorisation des valeurs du contrôle """
+        """ Mémorisation des valeurs du contrôle """
         # Récupération des noms et valeurs par défaut du contrôle
         dictValeurs = copy.deepcopy(self.GetPropertyValues())
         # Sauvegarde des valeurs

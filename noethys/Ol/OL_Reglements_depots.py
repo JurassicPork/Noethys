@@ -355,7 +355,7 @@ class ListView(FastObjectListView):
         # Save sorting
         self.InitModel(tracks, IDcompte, IDmode)
         self.InitObjectListView()
-        # sélection d'un item
+        # Sélection d'un item
         if selectionTrack != None :
             self.SelectObjects(selectionTrack, deselectOthers=True)
             if self.GetSelectedObject() == None :
@@ -375,7 +375,7 @@ class ListView(FastObjectListView):
             noSelection = False
             ID = self.Selection()[0].IDreglement
                 
-        # création du menu contextuel
+        # Création du menu contextuel
         menuPop = UTILS_Adaptations.Menu()
 
         # Génération automatique des fonctions standards
@@ -419,7 +419,7 @@ class ListView(FastObjectListView):
                     dictDetails[track.IDmode] = { "label" : track.nom_mode, "nbre" : 0, "montant" : 0.0}
                 dictDetails[track.IDmode]["nbre"] += 1
                 dictDetails[track.IDmode]["montant"] += track.montant
-        # création du texte
+        # Création du texte
         listeDetails = []
         texte = _(u"%d règlements (%.2f €)") % (nbreTotal, montantTotal)
         for IDmode, dictDetail in dictDetails.items() :

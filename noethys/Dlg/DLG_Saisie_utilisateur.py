@@ -126,11 +126,11 @@ class CTRL_Image(wx.StaticBitmap):
         self.MAJ() 
 
     def ContextMenu(self, event=None):
-        # création du menu contextuel
+        # Création du menu contextuel
         menuPop = UTILS_Adaptations.Menu()
         
         # Automatique
-        item = wx.MenuItem(menuPop, 999, _(u"Automatique (défaut)"))
+        item = wx.MenuItem(menuPop, 999, _(u"Automatique (Défaut)"))
         menuPop.AppendItem(item)
         self.Bind(wx.EVT_MENU, self.OnItemMenu, id=999)
         
@@ -275,8 +275,8 @@ class Dialog(wx.Dialog):
         self.ctrl_image = CTRL_Image(self)
         self.hyper_image = Hyperlien(self, label=_(u"Choisir un avatar"), infobulle=_(u"Cliquez ici pour modifier l'avatar de l'utilisateur"), URL="")
         
-        # accès
-        self.staticbox_acces_staticbox = wx.StaticBox(self, -1, _(u"accès"))
+        # Accès
+        self.staticbox_acces_staticbox = wx.StaticBox(self, -1, _(u"Accès"))
         self.ctrl_actif = wx.CheckBox(self, -1, u"Utilisateur actif")
         self.ctrl_actif.SetValue(True)
         self.bouton_modif_mdp = CTRL_Bouton_image.CTRL(self, texte="", cheminImage="Images/32x32/Cle.png")
@@ -320,7 +320,7 @@ class Dialog(wx.Dialog):
         if self.IDutilisateur == None :
             self.SetTitle(_(u"Saisie d'un utilisateur"))
 
-            # création des codes internet
+            # Création des codes internet
             internet_identifiant = UTILS_Internet.CreationIdentifiant(IDutilisateur=IDutilisateur)
             internet_mdp = UTILS_Internet.CreationMDP(nbreCaract=8)
             self.ctrl_compte_internet.SetDonnees({"internet_actif": 0, "internet_identifiant": internet_identifiant, "internet_mdp": internet_mdp})
@@ -333,18 +333,18 @@ class Dialog(wx.Dialog):
         self.MAJboutonMdp()
 
     def __set_properties(self):
-        self.bouton_modifier.SetToolTip(wx.ToolTip(_(u"Modifier les paramêtres du compte internet")))
+        self.bouton_modifier.SetToolTip(wx.ToolTip(_(u"Modifier les paramètres du compte internet")))
         #self.bouton_envoi_mail.SetToolTip(wx.ToolTip(_(u"Envoyer un couriel à la famille avec les codes d'accès au portail Internet")))
         self.bouton_envoi_pressepapiers.SetToolTip(wx.ToolTip(_(u"Copier les codes d'accès dans le presse-papiers afin de les coller ensuite dans un document ou un email par exemple")))
         #self.bouton_historique.SetToolTip(wx.ToolTip(_(u"Consulter et traiter les demandes de l'utilisateur")))
-        self.ctrl_sexe.SetToolTip(wx.ToolTip(_(u"sélectionnez le sexe de l'utilisateur")))
+        self.ctrl_sexe.SetToolTip(wx.ToolTip(_(u"Sélectionnez le sexe de l'utilisateur")))
         self.ctrl_sexe.SetSelection(0)
         self.ctrl_nom.SetToolTip(wx.ToolTip(_(u"Saisissez ici le nom de famille de l'utilisateur")))
         self.ctrl_prenom.SetToolTip(wx.ToolTip(_(u"Saisissez ici le prénom de l'utilisateur")))
-        self.radio_droits_admin.SetToolTip(wx.ToolTip(_(u"sélectionnez l'option 'Administrateur' pour donner tous les droits à cet utilisateur")))
-        self.radio_droits_modele.SetToolTip(wx.ToolTip(_(u"sélectionnez cette option pour attribuer un modèle de droits à cet utilisateur")))
-        self.radio_droits_perso.SetToolTip(wx.ToolTip(_(u"sélectionnez cette option pour attribuer des droits personnalisés à cet utilisateur")))
-        self.ctrl_actif.SetToolTip(wx.ToolTip(_(u"Décochez cette case pour Désactiver l'utilisateur. L'utilisateur n'aura plus accès à ce fichier de données.")))
+        self.radio_droits_admin.SetToolTip(wx.ToolTip(_(u"Sélectionnez l'option 'Administrateur' pour donner tous les droits à cet utilisateur")))
+        self.radio_droits_modele.SetToolTip(wx.ToolTip(_(u"Sélectionnez cette option pour attribuer un modèle de droits à cet utilisateur")))
+        self.radio_droits_perso.SetToolTip(wx.ToolTip(_(u"Sélectionnez cette option pour attribuer des droits personnalisés à cet utilisateur")))
+        self.ctrl_actif.SetToolTip(wx.ToolTip(_(u"Décochez cette case pour désactiver l'utilisateur. L'utilisateur n'aura plus accès à ce fichier de données.")))
         self.bouton_modif_mdp.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour saisir un nouveau mot de passe pour cet utilisateur")))
         self.bouton_aide.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour obtenir de l'aide")))
         self.bouton_ok.SetToolTip(wx.ToolTip(_(u"Cliquez ici pour valider")))
@@ -370,7 +370,7 @@ class Dialog(wx.Dialog):
         staticbox_identite.Add(grid_sizer_identite, 1, wx.ALL|wx.EXPAND, 10)
         grid_sizer_haut_gauche.Add(staticbox_identite, 1, wx.EXPAND, 0)
         
-        # accès
+        # Accès
         staticbox_acces = wx.StaticBoxSizer(self.staticbox_acces_staticbox, wx.VERTICAL)
         self.grid_sizer_acces = wx.FlexGridSizer(rows=1, cols=5, vgap=10, hgap=10)
         self.grid_sizer_acces.Add(self.ctrl_actif, 0, wx.ALIGN_CENTER_VERTICAL, 0)
@@ -552,7 +552,7 @@ class Dialog(wx.Dialog):
         # Vérifie que le compte n'est pas inactif alors que le compte internet est actif
         dictCompteInternet = self.ctrl_compte_internet.GetDonnees()
         if dictCompteInternet["internet_actif"] == 1 and self.ctrl_actif.GetValue() == False :
-            dlg = wx.MessageDialog(self, _(u"Vous devez Désactiver le compte internet si vous souhaitez Désactiver cet utilisateur !"), _(u"Erreur de saisie"), wx.OK | wx.ICON_EXCLAMATION)
+            dlg = wx.MessageDialog(self, _(u"Vous devez désactiver le compte internet si vous souhaitez Désactiver cet utilisateur !"), _(u"Erreur de saisie"), wx.OK | wx.ICON_EXCLAMATION)
             dlg.ShowModal()
             dlg.Destroy()
             return False
@@ -584,7 +584,7 @@ class Dialog(wx.Dialog):
             self.ctrl_sexe.Select(1)
         self.ctrl_nom.SetValue(nom)
         self.ctrl_prenom.SetValue(prenom)
-        # accès
+        # Accès
         self.mdp = mdp
         self.mdpcrypt = mdpcrypt
         if actif == 1 :
@@ -616,7 +616,7 @@ class Dialog(wx.Dialog):
         nom = self.ctrl_nom.GetValue() 
         prenom = self.ctrl_prenom.GetValue() 
         
-        # accès
+        # Accès
         if self.ctrl_actif.GetValue() == True :
             actif = 1
         else:

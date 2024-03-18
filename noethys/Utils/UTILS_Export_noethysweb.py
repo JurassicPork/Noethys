@@ -498,7 +498,7 @@ class Table_pieces(Table):
         for IDindividu, nom in self.parent.DB.ResultatReq():
             self.liste_individus.append(IDindividu)
 
-        # Récupération des familles
+        # RÃ©cupÃ©ration des familles
         req = """SELECT IDfamille, date_creation FROM familles;"""
         self.parent.DB.ExecuterReq(req)
         self.liste_familles = []
@@ -618,7 +618,7 @@ class Table_tarifs(Table):
     def __init__(self, parent, **kwds):
         self.parent = parent
 
-        # Récupération des évènements
+        # RÃ©cupÃ©ration des Ã©vÃ¨nements
         req = """SELECT IDevenement, IDactivite FROM evenements;"""
         self.parent.DB.ExecuterReq(req)
         self.dict_evenements = {IDevenement: IDactivite for IDevenement, IDactivite in self.parent.DB.ResultatReq()}
@@ -683,7 +683,7 @@ class Table_tarifs_lignes(Table):
     def __init__(self, parent, **kwds):
         self.parent = parent
 
-        # Récupération des tarifs
+        # RÃ©cupÃ©ration des tarifs
         req = """SELECT IDtarif, date_debut FROM tarifs;"""
         self.parent.DB.ExecuterReq(req)
         self.liste_tarifs = [IDtarif for IDtarif, date_debut in self.parent.DB.ResultatReq()]
@@ -1390,7 +1390,7 @@ class Table_payeurs(Table):
     def __init__(self, parent, **kwds):
         self.parent = parent
 
-        # Récupération des familles
+        # RÃ©cupÃ©ration des familles
         req = """select IDpayeur, familles.IDfamille FROM payeurs
         LEFT JOIN comptes_payeurs ON comptes_payeurs.IDcompte_payeur = payeurs.IDcompte_payeur
         LEFT JOIN familles ON familles.IDfamille = comptes_payeurs.IDfamille;"""
@@ -1712,7 +1712,7 @@ class Table_transports(Table):
 class Table_prelevements(Table):
     def __init__(self, parent, **kwds):
         self.parent = parent
-        # Importation de la table des règlements
+        # Importation de la table des rÃ¨glements
         req = "SELECT IDreglement, IDprelevement FROM reglements;"
         self.parent.DB.ExecuterReq(req)
         self.reglements = {}
@@ -1728,7 +1728,7 @@ class Table_prelevements(Table):
 
 class Table_modeles_prelevements(Table):
     def Get_data(self):
-        # Génération de modèles pour les lots de prélèvements
+        # GÃ©nÃ©ration de modÃ¨les pour les lots de prÃ©lÃ¨vements
         req = "SELECT IDlot, format, IDcompte, IDmode, reglement_auto, encodage, IDperception, identifiant_service, poste_comptable FROM lots_prelevements;"
         self.parent.DB.ExecuterReq(req)
         liste_modeles = []

@@ -262,7 +262,7 @@ class CTRL(ULC.UltimateListCtrl):
                 date = datetime.datetime.fromtimestamp(t)
                 dateModif = date.strftime("%d/%m/%Y %H:%M")
                 
-                # Ouverture de la base de données pour Récupèrer les infos sur le fichier
+                # Ouverture de la base de données pour Récupérer les infos sur le fichier
                 logo = None
                 description = u""
                 try :
@@ -289,7 +289,7 @@ class CTRL(ULC.UltimateListCtrl):
                 else :
                     image = None
 
-                # mémorisation
+                # Mémorisation
                 listeFichiers.append({"titre" : titre, "image" : image, "description" : description, "taille" : taille, "dateModif" : dateModif})
         
         return listeFichiers
@@ -353,7 +353,7 @@ class CTRL(ULC.UltimateListCtrl):
                 # Date de dernière modification
                 dateModif = None
                 
-                # Ouverture de la base de données pour Récupèrer les infos sur le fichier
+                # Ouverture de la base de données pour Récupérer les infos sur le fichier
                 nom = u""
                 logo = None
                 description = u""
@@ -378,7 +378,7 @@ class CTRL(ULC.UltimateListCtrl):
                 else :
                     image = None
 
-                # mémorisation
+                # Mémorisation
                 listeFichiers.append({"titre" : titre, "image" : None, "image" : image, "description" : description, "taille" : taille, "dateModif" : dateModif})
 
         # Fermeture connexion

@@ -649,8 +649,7 @@ class Impression():
                                     else :
                                         dataTableau.append([texteDate, texteIntitules, texteMontantsTTC])
 
-                            # Sous-total par activité
-                            if dictOptions.get("afficher_sous_total_activite", False) == True:
+                            # Sous-total par activitÃ©                            if dictOptions.get("afficher_sous_total_activite", False) == True:
                                 total_activite = sum([dictDates["total"] for date, dictDates in dictActivites["presences"].items()])
                                 dataTableau.append([Paragraph(u"<para align='right'><i>Sous-total</i></para>", paraStyle), "", Paragraph(u"<para align='center'><i>%.02f %s</i></para>" % (total_activite, SYMBOLE), paraStyle)])
 

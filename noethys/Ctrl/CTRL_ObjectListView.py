@@ -252,7 +252,7 @@ class ObjectListView(OLV.ObjectListView):
         self.SetColumns(self.listeColonnes)
 
     def AjouterCommandesMenuContext(self, menu=None):
-        # séparation
+        # Séparation
         menu.AppendSeparator()
         
         # Item Configurer la liste
@@ -261,7 +261,7 @@ class ObjectListView(OLV.ObjectListView):
         menu.AppendItem(item)
         self.Bind(wx.EVT_MENU, self.MenuConfigurerListe, id=8601)
 
-        # séparation
+        # Séparation
         menu.AppendSeparator()
         
         # Statistiques de la liste
@@ -282,13 +282,13 @@ class ObjectListView(OLV.ObjectListView):
         colonnes_dispo = []
         for col in self.listeColonnesDefaut:
             if hasattr(col, "visible"):
-                # mémorise colonne disponible
+                # Mémorise colonne disponible
                 nom = col.title
                 if nom == "":
                     nom = col.valueGetter
                 colonnes_dispo.append({"nom" : nom, "code" : col.valueGetter, "col" : col})
 
-        # mémorise sélection actuelle
+        # Mémorise sélection actuelle
         colonnes_selection = []
         for col in self.listeColonnes :
             if hasattr(col, "visible"):
@@ -509,7 +509,7 @@ class ObjectListView(OLV.ObjectListView):
                 if choix == "AJOUR":
                     filtre = "track.ID%s in %s" % (code, self.GetCotisations(mode=code, choix=choix, criteres=criteres))
 
-            # mémorisation
+            # Mémorisation
             listeFiltresFinale.append(filtre) 
         
         return listeFiltresFinale
@@ -566,7 +566,7 @@ class ObjectListView(OLV.ObjectListView):
             if periode != None :
                 conditionGroupes = conditionGroupes.replace("inscriptions", "consommations")
                 
-        # Conditions présents
+        # Conditions Présents
         conditionPresents = ""
         jointurePresents = ""
         if periode != None :
@@ -672,7 +672,7 @@ class ObjectListView(OLV.ObjectListView):
 
         # Apercu avant impression
         id = wx.Window.NewControlId()
-        item = wx.MenuItem(menu, id, _(u"aperçu avant impression"))
+        item = wx.MenuItem(menu, id, _(u"Aperçu avant impression"))
         item.SetBitmap(wx.Bitmap(Chemins.GetStaticPath("Images/16x16/Apercu.png"), wx.BITMAP_TYPE_PNG))
         menu.AppendItem(item)
         self.Bind(wx.EVT_MENU, self.Apercu, id=id)
@@ -977,7 +977,7 @@ class CTRL_Outils(wx.Panel):
         
     def OnMenu(self, event):
         ID = event.GetId()
-        # accéder à la gestion des filtres
+        # Accéder à la gestion des filtres
         if ID == 10 : 
             self.OnBoutonFiltrer(None)
         # Supprimer tous les filtres

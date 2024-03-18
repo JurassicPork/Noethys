@@ -26,7 +26,7 @@ def ConvertVersionTuple(texteVersion=""):
     return tuple(tupleTemp)
 
 def GetAnnonce():
-    """ Fonction de récupération de l'annonce é afficher """
+    """ Fonction de récupération de l'annonce à afficher """
     dateJour = datetime.date.today() 
     dictAnnonce = None
     found = False
@@ -140,7 +140,7 @@ class Panel(wx.Panel):
         # Dessine le fond
         dc.DrawBitmap(self.image_fond, 0, 0)
 
-        # Récupére l'annonce
+        # Récupère l'annonce
         dictAnnonce = GetAnnonce()
         if dictAnnonce != None :
 

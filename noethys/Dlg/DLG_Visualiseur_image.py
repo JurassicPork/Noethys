@@ -84,7 +84,7 @@ class MyFrame(wx.Frame):
             _icon = wx.EmptyIcon()
         _icon.CopyFromBitmap(wx.Bitmap(Chemins.GetStaticPath("Images/16x16/Logo.png"), wx.BITMAP_TYPE_ANY))
         self.SetIcon(_icon)
-        self.SetTitle(_(u"aperçu d'image"))
+        self.SetTitle(_(u"Aperçu d'image"))
         
         self.imgORIG = None
         self.imgORIX = 0
@@ -186,7 +186,7 @@ class MyFrame(wx.Frame):
                 self.imgORIY = self.imgORIG.GetHeight()
                 self.bmpRESU = self.imgORIG.ConvertToBitmap()
                 self.panneau.Affiche(self.bmpRESU, self.ratio)
-                self.SetTitle(_(u"aperçu d'image [%s]")% fichier)
+                self.SetTitle(_(u"Aperçu d'image [%s]")% fichier)
                 self.barre.SetStatusText("(%s, %s) %s %%" %(self.imgORIX, self.imgORIY, self.ratio), 1)
     
     def ChargeImagePIL(self, imgPIL=None):
@@ -214,7 +214,7 @@ class MyFrame(wx.Frame):
             self.imgORIY = 0
             self.bmpRESU = None
             self.ratio = 100
-            self.SetTitle(_(u"aperçu d'images"))
+            self.SetTitle(_(u"Aperçu d'images"))
             self.barre.SetStatusText("", 1)
 
     def OnExit(self, evt):

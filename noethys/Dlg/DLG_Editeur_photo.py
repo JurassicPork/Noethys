@@ -142,7 +142,7 @@ class ImgBox(wx.Window):
         largeurImg, hauteurImg = self.bmp.GetSize()
         dc.DrawBitmap(self.bmp, int(self.posxPhoto - (largeurImg / 2.0)), int(self.posyPhoto - (hauteurImg / 2.0)), 0)
         
-        # définit la position et la taille du cadre de sélection
+        # Définit la position et la taille du cadre de sélection
         coeffReduction = 2.0
         if 'phoenix' in wx.PlatformInfo:
             largeurDC, hauteurDC = self.GetClientSize()
@@ -151,7 +151,7 @@ class ImgBox(wx.Window):
         self.posxCadre = (largeurDC / 2.0) - (self.tailleCadre[0] / 2.0)
         self.posyCadre = (hauteurDC / 2.0) - (self.tailleCadre[1] / 2.0)
         
-        # mémorise la sélection de la photo avant de dessiner le cadre
+        # Mémorise la sélection de la photo avant de dessiner le cadre
         self.selection = dc.GetAsBitmap((self.posxCadre, self.posyCadre, self.tailleCadre[0], self.tailleCadre[1]))
                 
         # Dessine le cadre de sélection
@@ -171,7 +171,7 @@ class ImgBox(wx.Window):
         self.apercu = self.apercu.ConvertToBitmap()
         dc.DrawBitmap(self.apercu, int(posxApercu), int(posyApercu), 0)
         dc.SetTextForeground("RED")
-        texteApercu = _(u"aperçu")
+        texteApercu = _(u"Aperçu")
         dc.DrawText(texteApercu, posxApercu+3, posyApercu+1) 
         
         # Dessine le cadre de l'aperçu

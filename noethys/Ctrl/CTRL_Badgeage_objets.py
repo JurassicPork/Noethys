@@ -340,7 +340,7 @@ class Groupe_clavier_numerique(Groupe):
         self.dictTouches = {}
         for nomTouche in self.listeTouches :
             
-            # création image normale
+            # Création image normale
             bmp = wx.Bitmap(Chemins.GetStaticPath("Images/Badgeage/%s.png" % nomTouche), wx.BITMAP_TYPE_PNG)
             image = bmp.ConvertToImage()
     
@@ -352,7 +352,7 @@ class Groupe_clavier_numerique(Groupe):
             image = image.AdjustChannels(0.7, 0.7, 0.7, 1.0)
             bmp_enfonce = image.ConvertToBitmap() 
             
-            # création Touche du clavier
+            # Création Touche du clavier
             toucheNum = Touche_clavier_numerique(self.interface, nom=nomTouche, categorie="clavier_numerique", position=(x, y), taille=(tailleTouche, tailleTouche), bmp=bmp, bmp_survol=bmp_survol, bmp_enfonce=bmp_enfonce)
             self.Ajouter(toucheNum)
             self.dictTouches[nomTouche] = toucheNum
@@ -410,7 +410,7 @@ class Groupe_liste_individus(Groupe):
         xFond, yFond = fond.position
         largeurFond, hauteurFond = fond.taille
 
-        # création des boutons
+        # Création des boutons
         posxTouche = xFond+largeurFond-marge-tailleTouche
         listeTouches = [
             ("Haut", (posxTouche, yFond+marge) ),
@@ -422,7 +422,7 @@ class Groupe_liste_individus(Groupe):
         self.dictTouches = {}
         for nomTouche, posTouche in listeTouches :
             
-            # création image normale
+            # Création image normale
             bmp = wx.Bitmap(Chemins.GetStaticPath("Images/Badgeage/%s.png" % nomTouche), wx.BITMAP_TYPE_PNG)
             image = bmp.ConvertToImage()
     
@@ -434,7 +434,7 @@ class Groupe_liste_individus(Groupe):
             image = image.AdjustChannels(0.7, 0.7, 0.7, 1.0)
             bmp_enfonce = image.ConvertToBitmap() 
             
-            # création Touche du clavier
+            # Création Touche du clavier
             toucheNum = Touche_liste_individus(self.interface, nom=nomTouche, categorie="liste_individus", position=posTouche, taille=(tailleTouche, tailleTouche), bmp=bmp, bmp_survol=bmp_survol, bmp_enfonce=bmp_enfonce)
             self.Ajouter(toucheNum)
             self.dictTouches[nomTouche] = toucheNum

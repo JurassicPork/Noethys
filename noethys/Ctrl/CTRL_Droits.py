@@ -47,7 +47,7 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Organisateur"), "code" : "parametrage_organisateur", "actions" : ["consulter", "modifier"], "restriction" : False },
     { "label" : _(u"Comptes bancaires"), "code" : "parametrage_comptes_bancaires", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Groupes d'activités"), "code" : "parametrage_groupes_activites", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
-    { "label" : _(u"activités"), "code" : "parametrage_activites", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : True },
+    { "label" : _(u"Activités"), "code" : "parametrage_activites", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : True },
     { "label" : _(u"Modèles de documents"), "code" : "parametrage_modeles_docs", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Modèles d'Emails"), "code" : "parametrage_modeles_emails", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Modèles de tickets"), "code" : "parametrage_modeles_tickets", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
@@ -55,7 +55,7 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Modèles de contrats"), "code" : "parametrage_modeles_contrats", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Procédures de badgeage"), "code" : "parametrage_procedures_badgeage", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Synthèse vocale"), "code" : "parametrage_vocal", "actions" : ["consulter", "modifier"], "restriction" : False },
-    { "label" : _(u"périodes de gestion"), "code" : "parametrage_periodes_gestion", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Périodes de gestion"), "code" : "parametrage_periodes_gestion", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Catégories de messages"), "code" : "parametrage_categories_messages", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Types de pièces"), "code" : "parametrage_types_pieces", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Catégories sociopro."), "code" : "parametrage_categories_travail", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
@@ -68,8 +68,8 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Vaccins"), "code" : "parametrage_vaccins", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Médecins"), "code" : "parametrage_medecins", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Restaurateurs"), "code" : "parametrage_restaurateurs", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
-    { "label" : _(u"Modes de réglements"), "code" : "parametrage_modes_reglements", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
-    { "label" : _(u"Emetteurs de réglements"), "code" : "parametrage_emetteurs", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Modes de règlements"), "code" : "parametrage_modes_reglements", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Emetteurs de règlements"), "code" : "parametrage_emetteurs", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Etablissements bancaires"), "code" : "parametrage_banques", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Préfixes de factures"), "code" : "parametrage_prefixes_factures", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Lots de factures"), "code" : "parametrage_lots_factures", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
@@ -77,7 +77,7 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Régimes sociaux"), "code" : "parametrage_regimes", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Caisses"), "code" : "parametrage_caisses", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Types de quotients"), "code" : "parametrage_types_quotients", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
-    { "label" : _(u"Modèles d'aides journaliéres"), "code" : "parametrage_modeles_aides", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Modèles d'aides journalières"), "code" : "parametrage_modeles_aides", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Types de cotisations"), "code" : "parametrage_types_cotisations", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Adresses d'expédition d'Emails"), "code" : "parametrage_emails_exp", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Listes de diffusion"), "code" : "parametrage_listes_diffusion", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
@@ -106,13 +106,13 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Questionnaires"), "code" : "familles_questionnaires", "actions" : ["consulter", "modifier",], "restriction" : False },
     { "label" : _(u"Pièces"), "code" : "familles_pieces", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Cotisations"), "code" : "familles_cotisations", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
-    { "label" : _(u"Aides journaliéres"), "code" : "familles_aides", "actions" : ["modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Aides journalières"), "code" : "familles_aides", "actions" : ["modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Caisse"), "code" : "familles_caisse", "actions" : ["consulter", "modifier",], "restriction" : False },
     { "label" : _(u"Quotients familiaux"), "code" : "familles_quotients", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Prestations"), "code" : "familles_prestations", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Factures"), "code" : "familles_factures", "actions" : ["consulter", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Param. factures par Email"), "code" : "familles_factures_email", "actions" : ["modifier",], "restriction" : False },
-    { "label" : _(u"Réglements"), "code" : "familles_reglements", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Règlements"), "code" : "familles_reglements", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Remboursements"), "code" : "familles_remboursements", "actions" : ["creer",], "restriction" : False },
     { "label" : _(u"Param. prélèvement"), "code" : "familles_prelevement", "actions" : ["modifier",], "restriction" : False },
     { "label" : _(u"Mandats SEPA"), "code" : "familles_mandats", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
@@ -150,7 +150,7 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Factures"), "code" : "facturation_factures", "actions" : ["consulter", "creer", "supprimer"], "restriction" : True },
     { "label" : _(u"Rappels"), "code" : "facturation_rappels", "actions" : ["consulter", "creer", "supprimer"], "restriction" : True },
     { "label" : _(u"Attestations"), "code" : "facturation_attestations", "actions" : ["consulter", "creer", "supprimer"], "restriction" : True },
-    { "label" : _(u"prélèvements auto."), "code" : "facturation_prelevements", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Prélèvements auto."), "code" : "facturation_prelevements", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Export Trésor Public"), "code" : "facturation_helios", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     { "label" : _(u"Solder impayés"), "code" : "facturation_solder_impayes", "actions" : ["creer",], "restriction" : False },
 
@@ -159,10 +159,10 @@ LISTE_CATEGORIES = [
     { "label" : _(u"Cotisations manquantes"), "code" : "cotisations_manquantes", "actions" : ["consulter", ], "restriction" : False },
     { "label" : _(u"Dépôts de cotisations"), "code" : "cotisations_depots", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
 
-    _(u"Gestion des réglements"),
+    _(u"Gestion des règlements"),
     { "label" : _(u"Liste des reçus"), "code" : "reglements_recus", "actions" : ["consulter",], "restriction" : False },
-    { "label" : _(u"Liste des réglements"), "code" : "reglements_liste", "actions" : ["consulter",], "restriction" : False },
-    { "label" : _(u"Dépôts de réglements"), "code" : "reglements_depots", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
+    { "label" : _(u"Liste des règlements"), "code" : "reglements_liste", "actions" : ["consulter",], "restriction" : False },
+    { "label" : _(u"Dépôts de règlements"), "code" : "reglements_depots", "actions" : ["consulter", "modifier", "creer", "supprimer"], "restriction" : False },
     
     ]
 
@@ -178,7 +178,7 @@ LISTE_ACTIONS = [
     
     { "label" : _(u"Consulter"), "code" : "consulter"},
     { "label" : _(u"Modifier"), "code" : "modifier"},
-    { "label" : _(u"créer"), "code" : "creer"},
+    { "label" : _(u"Créer"), "code" : "creer"},
     { "label" : _(u"Supprimer"), "code" : "supprimer"},
 
     ]
@@ -243,7 +243,7 @@ class Case():
         else :
             self.typeLigne = "groupe"
             
-        self.etat = etat # États possibles = groupe, inactif, autorisation, interdiction, restriction
+        self.etat = etat # états possibles = groupe, inactif, autorisation, interdiction, restriction
         
         # Dessin de la case
         self.renderer = RendererCase(self)
@@ -300,7 +300,7 @@ class Case():
         texte = ""
         if self.dictAction["code"] == "consulter" : texte = _(u"Consultation")
         if self.dictAction["code"] == "modifier" : texte = _(u"Modification")
-        if self.dictAction["code"] == "creer" : texte = _(u"création")
+        if self.dictAction["code"] == "creer" : texte = _(u"Création")
         if self.dictAction["code"] == "supprimer" : texte = _(u"Suppression")
         
         if self.etat == "autorisation" : texte += _(u" autorisée")
@@ -364,7 +364,7 @@ class RendererCase(GridCellRenderer):
             paddingImage = 3
             dc.DrawBitmap(bmp, int(rect[0] + ((rect[2] - tailleImage) / 2.0)), int(rect[1] + ((rect[3] - tailleImage) / 2.0)))
         
-        # mémorisation pour infobulle
+        # Mémorisation pour infobulle
         self.bmp = bmp
         self.couleurFond = couleurFond
         
@@ -537,7 +537,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
         listeDonnees = DB.ResultatReq()
         DB.Close()
         
-        # mémorisation dans le dictDroits
+        # Mémorisation dans le dictDroits
         for IDdroit, categorie, action, etat in listeDonnees :
             self.dictDroits[(categorie, action)] = {"etat" : etat, "IDdroit" : IDdroit}
     
@@ -608,7 +608,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
     def InitGrid(self):
         self.dictCases = {}
         
-        # ----------------- création des colonnes --------------------------
+        # ----------------- Création des colonnes --------------------------
         nbreColonnes = len(LISTE_ACTIONS)
         largeurColonneAction = 100
         self.AppendCols(nbreColonnes)
@@ -619,7 +619,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
             self.SetColSize(numColonne, largeurColonneAction)
             numColonne += 1
         
-        # ------------------ création des lignes -------------------------------------------------------
+        # ------------------ Création des lignes -------------------------------------------------------
         nbreLignes = len(LISTE_CATEGORIES)
         self.AppendRows(nbreLignes)
         
@@ -667,7 +667,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
                         if key in self.dictDroits :
                             etat = self.dictDroits[key]["etat"]
                 
-                # création de la case
+                # Création de la case
                 case = Case(self, numLigne, numColonne, dictCategorie, dictAction, numGroupe, nomGroupe, etat)
                 self.dictCases[(numLigne, numColonne)] = case
                 numColonne += 1
@@ -719,7 +719,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
         if self.case_selection == None :
             return
         
-        # création du menu contextuel
+        # Création du menu contextuel
         menuPop = UTILS_Adaptations.Menu()
         
         nomCategorie = self.GetRowLabelValue(numLigne)
@@ -765,7 +765,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
     def OnActionMenuContextuel(self, event):
         ID = event.GetId() 
         
-        # sélectionne l'état à appliquer
+        # Sélectionne l'état à appliquer
         if str(ID)[0] == "1" : 
             etat = "autorisation"
             IDcommande = ID-100
@@ -827,7 +827,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
         return listeCases
         
     def AfficheTooltip(self):
-        """ création du supertooltip """
+        """ Création du supertooltip """
         case = self.tip.case
         
         # Récupération des données du tooltip

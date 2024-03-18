@@ -482,7 +482,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
             dictOuverture = {"IDouverture" : IDouverture, "IDactivite" : IDactivite, "IDunite" : IDunite, "IDgroupe" : IDgroupe, "date" : date}
             dictDonnees["liste_ouvertures"].append(dictOuverture)
 
-            # mémorisation dans un dict
+            # Mémorisation dans un dict
             dictDonnees["dict_ouvertures"] = UTILS_Divers.DictionnaireImbrique(dictionnaire=dictDonnees["dict_ouvertures"], cles=[date, IDgroupe, IDunite], valeur=True)
 
             # mémorisation des dates
@@ -619,7 +619,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
         self.date_debut = date_debut
         self.date_fin = date_fin
 
-        # mémorisation des données existantes
+        # Mémorisation des données existantes
         try :
             for case in list(self.dictCases.values()):
                 if case.ouvert == True :
@@ -640,7 +640,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
         if len(self.dictDonnees) == 0 :
             return
 
-        # création des colonnes
+        # Création des colonnes
         nbreColonnes = len(self.dictDonnees["liste_colonnes"])
         self.AppendCols(nbreColonnes)
 
@@ -653,7 +653,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
             self.SetColSize(numColonne, dictColonne["largeur"])
             numColonne += 1
 
-        # création des lignes
+        # Création des lignes
         nbreLignes = len(self.dictDonnees["liste_dates"])
         self.AppendRows(nbreLignes)
 
@@ -667,7 +667,7 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
             self.SetRowSize(numLigne, 40)
             numLigne += 1
 
-        # création des cases
+        # Création des cases
         self.dictCases = {}
 
         numLigne = 0
@@ -745,14 +745,14 @@ class CTRL(gridlib.Grid, glr.GridWithLabelRenderersMixin):
                     if dictColonne["categorie"] == "numerique_total":
                         ouvert = False
 
-                    # création de la case
+                    # Création de la case
                     case = Case(self, numLigne=numLigne, numColonne=numColonne, IDcolonne=dictColonne["IDcolonne"], date=date, categorieColonne=dictColonne["categorie"], ouvert=ouvert, suggestion=suggestion, valeur=valeur, IDvaleur=IDvaleur)
                     self.dictCases[(numLigne, numColonne)] = case
 
                 # Ligne de total
                 if type(date) in (str, six.text_type):
 
-                    # création de la case
+                    # Création de la case
                     case = Case(self, numLigne=numLigne, numColonne=numColonne, IDcolonne=dictColonne["IDcolonne"], date=date, categorieColonne=dictColonne["categorie"], ouvert=False, valeur=None)
                     self.dictCases[(numLigne, numColonne)] = case
 

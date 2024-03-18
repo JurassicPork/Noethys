@@ -811,7 +811,7 @@ class CaseEvenement(GridCellRenderer):
                                 gc.DrawEllipse(rectEvenement.x + rectEvenement.width - 7 - (5 * index), rectEvenement.y + rectEvenement.height - 7, 4, 4)  # En haut à droite
                             index += 1
 
-            # mémorisation des coordonnées du bouton
+            # Mémorisation des coordonnées du bouton
             self.dict_boutons[evenement] = rectEvenement
 
             # Calcul de la position x suivante

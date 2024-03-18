@@ -94,7 +94,7 @@ class GetValeurs() :
             DB.Close()
             return listeIDindividus, dictInfos, listeLiens
         
-        # Intégration de ces premiéres valeurs dans le dictValeurs
+        # Intégration de ces premières valeurs dans le dictValeurs
         for IDrattachement, IDindividu, IDcategorie, titulaire in listeRattachements :
             listeIDindividus.append(IDindividu)
             dictInfos[IDindividu] = {"categorie" : IDcategorie, "titulaire" : titulaire, "IDrattachement" : IDrattachement}
@@ -181,7 +181,7 @@ class GetValeurs() :
         dictPhotos = CTRL_Photo.GetPhotos(listeIndividus=listeIndividusTemp, taillePhoto=(128, 128), qualite=wx.IMAGE_QUALITY_HIGH)
 
         #----------------------------------------------
-        # 2éme tournée : Infos détaillées
+        # 2ème tournée : Infos détaillées
         #----------------------------------------------
         
         for IDindividu in listeIDindividus :
@@ -416,7 +416,7 @@ class CadreIndividu():
         else:
             self.zoomContenuRatio = 1
             
-        # Paramétres du cadre
+        # Paramètres du cadre
         x, y = self.xCentre-(largeur/2.0), self.yCentre-(hauteur/2.0)
         self.x, self.y = x, y
         if self.genre == "M" :
@@ -504,7 +504,7 @@ class CadreIndividu():
                 self.dc.DrawText(texte, int(posXtexte), int(posYtexte))
                 posYtexte += hauteurTexte + 1
         
-        # Dessin du cadre Accés aux consommations
+        # Dessin du cadre Accès aux consommations
         if self.calendrierActif == True and self.zoom > 1 :
             # Image de calendrier
             if self.survolCalendrier == True :
@@ -609,14 +609,14 @@ class CTRL_Graphique(wx.ScrolledWindow):
         # Initialisation du tooltip
 ##        self.SetToolTip(wx.ToolTip(""))
         self.tip = STT.SuperToolTip(u"")
-        self.tip.SetEndDelay(10000) # Fermeture auto du tooltip aprés 10 secs
+        self.tip.SetEndDelay(10000) # Fermeture auto du tooltip après 10 secs
         self.tip.IDindividu = None
         
-        # Paramétres
+        # Paramètres
         self.zoomActif = True # Active ou non le zoom sur une case
         self.espaceVerticalDefaut = 22 # Hauteur entre 2 cases
-        self.espaceHorizontalDefautCol1 = 40 # Espace aprés col 1
-        self.espaceHorizontalDefautCol2 = 80 # Espace aprés col 2
+        self.espaceHorizontalDefautCol1 = 40 # Espace après col 1
+        self.espaceHorizontalDefautCol2 = 80 # Espace après col 2
         self.hauteurCaseDefaut = 75 #70 # Hauteur par défaut d'une case
         self.largeurCaseDefaut = 210 # Largeur par défaut d'une case
         
@@ -725,7 +725,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
             espaceVertical = self.espaceVerticalDefaut
             dc.SetId(numCol)
             
-            # Diminue la hauteur des cases si la fenétre est trop petite
+            # Diminue la hauteur des cases si la fenêtre est trop petite
             hauteurBloc = (nbreCases*self.hauteurCaseDefaut)+(nbreCases-1)*espaceVertical
             coef = (tailleDC[1]-60) * 1.0 / hauteurBloc
             if coef < 1 :
@@ -882,7 +882,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
                     dc.DrawLine(int(posXLigneParents), int(min(listeYparents)), int(posXLigneParents), int(max(listeYparents)))
                 centreYparents = sum(listeYparents)/len(listeYparents)
                 
-                # Relie la barre ENFANTS é la barre PARENTS
+                # Relie la barre ENFANTS à la barre PARENTS
                 hauteurBarreHorizontale = centreYenfants
                 dc.DrawLine(int(posXLigneParents), int(hauteurBarreHorizontale), int(posXLigneEnfants), int(hauteurBarreHorizontale))
 
@@ -939,7 +939,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
                     cadre.Selectionne(False)
                     self.selectionCadre = None
         else:
-            # On désélectionne tout si on clique é cété
+            # On désélectionne tout si on clique à côté
             self.selectionCadre = None
             self.DeselectionneTout()
         
@@ -987,7 +987,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
     
             
     def OnLeaveWindow(self, event):
-        """ Rétablit le zoom normal pour tous les cadres si le focus quitte la fenétre """
+        """ Rétablit le zoom normal pour tous les cadres si le focus quitte la fenêtre """
         self.SetCursor(CURSOR(wx.CURSOR_DEFAULT))
         self.DezoomTout()
         self.ActiveTooltip(False) 
@@ -1038,7 +1038,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
         # Corps du tooltip
         message = u""
 
-        # Décés
+        # Décès
         if dictInfoIndividu["deces"] in (True, 1):
             message += _(u"</b>######### Individu décédé #########\n\n")
         # Archive
@@ -1077,9 +1077,9 @@ class CTRL_Graphique(wx.ScrolledWindow):
             nbreInscriptions = len(dictInfoIndividu["listeInscriptions"])
             message += "\n"
             if nbreInscriptions == 1 :
-                message += _(u"%s est inscrit%s é 1 activité \n") % (prenom, lettreGenre)
+                message += _(u"%s est inscrit%s à 1 activité \n") % (prenom, lettreGenre)
             else:
-                message += _(u"%s est inscrit%s é %d activités \n") % (prenom, lettreGenre, nbreInscriptions)
+                message += _(u"%s est inscrit%s à %d activités \n") % (prenom, lettreGenre, nbreInscriptions)
             for dictInscription in dictInfoIndividu["listeInscriptions"] :
                 message += "> %s (%s - %s) \n" % (dictInscription["nomActivite"], dictInscription["nomGroupe"], dictInscription["nomCategorie"])
 
@@ -1100,7 +1100,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
         self.tipFrame.Show()
         #self.tipFrame.StartAlpha(True) # ou .Show() pour un affichage immédiat
         
-        # Arrét du timer
+        # Arrêt du timer
         self.timerTip.Stop()
         del self.timerTip
                     
@@ -1157,7 +1157,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
             return   
 
         if self.dictValeurs.dictInfosIndividus[IDindividu]["inscriptions"] == False :
-            dlg = wx.MessageDialog(self, _(u"L'individu sélectionné n'est inscrit é aucune activité !"), _(u"Erreur de saisie"), wx.OK | wx.ICON_EXCLAMATION)
+            dlg = wx.MessageDialog(self, _(u"L'individu sélectionné n'est inscrit à aucune activité !"), _(u"Erreur de saisie"), wx.OK | wx.ICON_EXCLAMATION)
             dlg.ShowModal()
             dlg.Destroy()
             return   
@@ -1338,13 +1338,13 @@ class CTRL_Graphique(wx.ScrolledWindow):
         return True
     
     def Modifier_menu(self, event):
-        """ Modifier une fiche é partir du menu contextuel """
+        """ Modifier une fiche à partir du menu contextuel """
         IDindividu = self.IDindividu_menu
         self.Modifier(IDindividu)
         self.IDindividu_menu = None
     
     def Modifier_selection(self, event=None):
-        """ Modifier une fiche é partir du bouton Modifier """
+        """ Modifier une fiche à partir du bouton Modifier """
         IDindividu = self.selectionCadre
         self.selectionCadre = None
         if IDindividu == None :
@@ -1404,7 +1404,7 @@ class CTRL_Graphique(wx.ScrolledWindow):
             
     
     def MAJnotebook(self):
-        """ MAJ la page active du notebook de la fenétre famille """
+        """ MAJ la page active du notebook de la fenêtre famille """
         self.parent.MAJpageActive()
         self.parent.MAJpage("caisse")
         self.parent.MAJpage("divers")
@@ -1425,10 +1425,10 @@ class CTRL_Liste(HTL.HyperTreeList):
         
         # Initialisation du tooltip
         self.tip = STT.SuperToolTip(u"")
-        self.tip.SetEndDelay(10000) # Fermeture auto du tooltip aprés 10 secs
+        self.tip.SetEndDelay(10000) # Fermeture auto du tooltip après 10 secs
         self.tip.IDindividu = None
 
-        # Création de l'ImageList (Récupére les images attribuées aux civilités)
+        # Création de l'ImageList (Récupère les images attribuées aux civilités)
         il = wx.ImageList(16, 16)
         index = 0
         self.dictImages = {}
@@ -1480,7 +1480,7 @@ class CTRL_Liste(HTL.HyperTreeList):
         self.donnees = donnees
         
     def MAJ(self):
-        """ Met é jour (redessine) tout le contréle """
+        """ Met à jour (redessine) tout le contréle """
         self.donnees = GetValeurs(self.IDfamille) 
         nbreBranches = self.GetChildrenCount(self.root)
         if nbreBranches > 1 :
@@ -1829,7 +1829,7 @@ class CTRL_Liste(HTL.HyperTreeList):
         self.MAJ() 
 
     def MAJnotebook(self):
-        """ MAJ la page active du notebook de la fenétre """
+        """ MAJ la page active du notebook de la fenêtre """
         self.parent.MAJpageActive()
         self.parent.MAJpage("caisse")
         self.parent.MAJpage("divers")
@@ -1927,9 +1927,9 @@ class CTRL_Liste(HTL.HyperTreeList):
             nbreInscriptions = len(dictInfoIndividu["listeInscriptions"])
             message += "\n"
             if nbreInscriptions == 1 :
-                message += _(u"%s est inscrit%s é 1 activité \n") % (prenom, lettreGenre)
+                message += _(u"%s est inscrit%s à 1 activité \n") % (prenom, lettreGenre)
             else:
-                message += _(u"%s est inscrit%s é %d activités \n") % (prenom, lettreGenre, nbreInscriptions)
+                message += _(u"%s est inscrit%s à %d activités \n") % (prenom, lettreGenre, nbreInscriptions)
             for dictInscription in dictInfoIndividu["listeInscriptions"] :
                 message += "> %s (%s - %s) \n" % (dictInscription["nomActivite"], dictInscription["nomGroupe"], dictInscription["nomCategorie"])
 
@@ -1950,7 +1950,7 @@ class CTRL_Liste(HTL.HyperTreeList):
         self.tipFrame.Show()
         #self.tipFrame.StartAlpha(True) # ou .Show() pour un affichage immédiat
         
-        # Arrét du timer
+        # Arrêt du timer
         self.timerTip.Stop()
         del self.timerTip
                     

@@ -49,7 +49,7 @@ LISTE_STYLES = [
     ]
     
 LISTE_THEMES = [
-    {"code" : "defaut", "label" : _(u"défaut"), "image" : "Theme_defaut.png", "dlg" : {"couleurClaire" : wx.Colour(206, 196, 190), "couleurFoncee" : wx.Colour(169, 156, 146)}, },
+    {"code" : "defaut", "label" : _(u"Défaut"), "image" : "Theme_defaut.png", "dlg" : {"couleurClaire" : wx.Colour(206, 196, 190), "couleurFoncee" : wx.Colour(169, 156, 146)}, },
     {"code" : "newyork", "label" : _(u"New-York"), "image" : "Theme_newyork.jpg", "dlg" : {"couleurClaire" : wx.Colour(186, 186, 186), "couleurFoncee" : wx.Colour(60, 60, 60)}, },
     {"code" : "ocean", "label" : _(u"Océan"), "image" : "Theme_ocean.jpg", "dlg" : {"couleurClaire" : wx.Colour(229, 195, 149), "couleurFoncee" : wx.Colour(2, 134, 183)}, },
     {"code" : "bleu", "label" : _(u"Bleu métal"), "image" : "Theme_bleu.jpg", "dlg" : {"couleurClaire" : wx.Colour(164, 182, 193), "couleurFoncee" : wx.Colour(63, 79, 94)}, },
@@ -88,7 +88,7 @@ def DateEngFr(textDate):
 def DateComplete(dateDD):
     """ Transforme une date DD en date complète : Ex : lundi 15 janvier 2008 """
     listeJours = (_(u"Lundi"), _(u"Mardi"), _(u"Mercredi"), _(u"Jeudi"), _(u"Vendredi"), _(u"Samedi"), _(u"Dimanche"))
-    listeMois = (_(u"janvier"), _(u"février"), _(u"mars"), _(u"avril"), _(u"mai"), _(u"juin"), _(u"juillet"), _(u"août"), _(u"septembre"), _(u"octobre"), _(u"novembre"), _(u"Décembre"))
+    listeMois = (_(u"janvier"), _(u"février"), _(u"mars"), _(u"avril"), _(u"mai"), _(u"juin"), _(u"juillet"), _(u"août"), _(u"septembre"), _(u"octobre"), _(u"novembre"), _(u"décembre"))
     dateComplete = listeJours[dateDD.weekday()] + " " + str(dateDD.day) + " " + listeMois[dateDD.month-1] + " " + str(dateDD.year)
     return dateComplete
 
@@ -194,7 +194,7 @@ class InfosIndividus():
         for IDquestion, IDindividu, reponse, controle in listeDonnees :
             dictCodesbarres["questionnaire"][reponse] = IDindividu
             
-        # création des codesbarres des individus
+        # Création des codesbarres des individus
         for IDindividu, dictTemp in self.dictIndividus.items() :
             cb = "I%06d" % IDindividu
             dictCodesbarres["standard"][cb] = IDindividu
@@ -258,7 +258,7 @@ class CTRL_Interface(wx.Panel):
         # Initialisation de la liste des individus
         self.infosIndividus = InfosIndividus()
         
-        # création des Contrôles
+        # Création des Contrôles
         self.ctrl_grille = DLG_Badgeage_grille.CTRL(self, usage="badgeage")
         self.ctrl_grille.SetSize((800, 120))
         self.ctrl_grille.SetPosition((20, 20))
@@ -304,7 +304,7 @@ class CTRL_Interface(wx.Panel):
         else :
             self.timer = None
             
-        # Init Contrôles
+        # Init contrôles
         self.AfficherControleActif() 
         
         # Importation manuelle de badgeages
@@ -394,7 +394,7 @@ class CTRL_Interface(wx.Panel):
     
     def AfficherControleActif(self):
         """ Affiche le contrôle actif """
-        # Cache tous les Contrôles
+        # Cache tous les contrôles
         self.CacherControleActif() 
         # Affiche le contrôle actif
         if self.nomControleActif == "barre_numerique" :
@@ -435,7 +435,7 @@ class CTRL_Interface(wx.Panel):
         dictProcedure = {} 
         DB = GestionDB.DB()
         
-        # Paramêtres de la procédure
+        # Paramètres de la procédure
         req = """SELECT nom, style, theme, image, systeme, activites, confirmation, vocal, tutoiement
         FROM badgeage_procedures
         WHERE IDprocedure=%d;
@@ -511,7 +511,7 @@ class CTRL_Interface(wx.Panel):
         prenom = infos["prenom"]
         nomIndividu = u"%s %s" % (nom, prenom)
         
-        # Demande de confirmation de l'Identité
+        # Demande de confirmation de l'identité
         if self.dictProcedure["parametres"]["confirmation"] == 1 and self.importationManuelle == False :
             if self.dictProcedure["parametres"]["tutoiement"] == 1 :
                 message = _(u"Confirmes-tu être %s %s ?") % (prenom, nom)
@@ -615,7 +615,7 @@ class CTRL_Interface(wx.Panel):
             listeFiltres = dictAction["condition_questionnaire"].split("##")
             DB = GestionDB.DB()
             
-            # Recherche des Contrôles et des types
+            # Recherche des contrôles et des types
             req = """SELECT IDquestion,type, controle
             FROM questionnaire_questions
             LEFT JOIN questionnaire_categories ON questionnaire_categories.IDcategorie = questionnaire_questions.IDcategorie;"""
@@ -660,7 +660,7 @@ class CTRL_Interface(wx.Panel):
         
         
     def Procedure_message(self, dictAction, IDindividu, date, heure):
-        """ procédure message """
+        """ Procédure message """
         messageUnique = dictAction["action_message"]
         listeMessages = dictAction["action_messages"]
         icone = dictAction["action_icone"]
@@ -670,7 +670,7 @@ class CTRL_Interface(wx.Panel):
         
         # Décide si affichage en fonction de la fréquence demandée
         if 1 <= random.randrange(1, 100)  <= frequence :
-            # sélectionne le texte
+            # Sélectionne le texte
             if len(listeMessages) == 0 :
                 texte = messageUnique
             else :
@@ -739,7 +739,7 @@ class CTRL_Interface(wx.Panel):
         return IDfamille, IDgroupe
 
     def Procedure_enregistrer(self, dictAction, IDindividu, date, heure):
-        """ procédure enregistrer """
+        """ Procédure enregistrer """
         IDactivite = int(dictAction["action_activite"])
         IDunite = int(dictAction["action_unite"])
         etat = dictAction["action_etat"]
@@ -767,7 +767,7 @@ class CTRL_Interface(wx.Panel):
         
         # Recherche si l'unité est ouverte pour ce groupe à cette date
         if (IDunite, IDgroupe) not in listeOuvertures :
-            self.log.AjouterAction(individu=nomIndividu, IDindividu=IDindividu, action=nomAction, resultat=_(u"unité '%s' fermée le %s") % (dictUnites[IDunite]["nom"], DateEngFr(str(date))))
+            self.log.AjouterAction(individu=nomIndividu, IDindividu=IDindividu, action=nomAction, resultat=_(u"Unité '%s' fermée le %s") % (dictUnites[IDunite]["nom"], DateEngFr(str(date))))
             return False
         
         # Initialisation de la grille des conso
@@ -826,7 +826,7 @@ class CTRL_Interface(wx.Panel):
                             conso_a_modifier = conso
                         if case.GetTypeUnite() != "Multihoraires" and conso.badgeage_debut != None and conso.badgeage_fin != None:
                             DIALOGUES.DLG_Message(self, message=_(u"Les heures d'arrivée et de départ ont déjà été enregistrées !"), icone="erreur")
-                            self.log.AjouterAction(individu=nomIndividu, IDindividu=IDindividu, action=nomAction, resultat=_(u"unité '%s' déjà badgée à l'arrivée et au départ !") % dictUnites[IDunite]["nom"])
+                            self.log.AjouterAction(individu=nomIndividu, IDindividu=IDindividu, action=nomAction, resultat=_(u"Unité '%s' déjà badgée à l'arrivée et au départ !") % dictUnites[IDunite]["nom"])
                             return False
 
                 if conso_a_modifier == None :
@@ -841,10 +841,10 @@ class CTRL_Interface(wx.Panel):
                     badgeage_debut = conso.badgeage_debut
                     badgeage_fin = maintenant
 
-                    # On Vérifie que le badgeage de début date de plus d'une minute
+                    # On vérifie que le badgeage de début date de plus d'une minute
                     if UTILS_Dates.HeureStrEnDelta(heureFin) - UTILS_Dates.HeureStrEnDelta(heureDebut) < UTILS_Dates.HeureStrEnDelta("00:01"):
                         DIALOGUES.DLG_Message(self, message=_(u"L'heure d'arrivée a été enregistrée il y a moins d'une minute !"), icone="erreur")
-                        self.log.AjouterAction(individu=nomIndividu, IDindividu=IDindividu, action=nomAction, resultat=_(u"unité '%s' badgée il y a moins d'une minute!") % dictUnites[IDunite]["nom"])
+                        self.log.AjouterAction(individu=nomIndividu, IDindividu=IDindividu, action=nomAction, resultat=_(u"Unité '%s' badgée il y a moins d'une minute!") % dictUnites[IDunite]["nom"])
                         return False
 
 
@@ -898,7 +898,7 @@ class CTRL_Interface(wx.Panel):
         return DateEngEnDateDD(dateTmp)
         
     def Procedure_reserver(self, dictAction, IDindividu, date, heure):
-        """ procédure Réserver """
+        """ Procédure Réserver """
         IDactivite = int(dictAction["action_activite"])
         listeUnites = ConvertStrToListe(dictAction["action_unite"])
         etat = dictAction["action_etat"]
@@ -1021,7 +1021,7 @@ class Dialog(wx.Dialog):
         self.importationManuelle = importationManuelle
         self.mode_debug = mode_debug
         
-        # création d'une dlg d'attente durant l'initialisation
+        # Création d'une dlg d'attente durant l'initialisation
         try :
             if importationManuelle == False :
                 texte = _(u"Veuillez patienter durant l'initialisation de l'interface de badgeage...")

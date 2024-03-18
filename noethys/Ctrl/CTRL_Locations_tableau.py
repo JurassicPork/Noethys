@@ -54,11 +54,11 @@ class Barre(object):
             else :
                 setattr(self, champ, None)
 
-        # quantité
+        # Quantité
         if self.quantite == None :
             self.quantite = 1
 
-        # période
+        # Période
         if isinstance(self.date_debut, str) or isinstance(self.date_debut, six.text_type) :
             self.date_debut = datetime.datetime.strptime(self.date_debut, "%Y-%m-%d %H:%M:%S")
 
@@ -169,10 +169,10 @@ class Barre(object):
                 rect = wx.Rect(int(left + self.parent.delta[0]), int(y), int(largeur), int(hauteur))
                 rect.Deflate(0, 6)
 
-                # Recherche si l'event doit apparaêtre dans le cadre
+                # Recherche si l'event doit apparaître dans le cadre
                 if rect.Intersects(rect_fenetre) == True :
 
-                    # sélection de la couleur de barre
+                    # Sélection de la couleur de barre
                     if self.IDfamille in self.parent.dict_couleurs:
                         self.couleur_barre = self.parent.dict_couleurs[self.IDfamille]
                     else:
@@ -494,7 +494,7 @@ class Colonne(object):
         if self.date == datetime.date.today() :
             dc.SetTextForeground("red")
 
-        # définit le texte du label
+        # Définit le texte du label
         if self.dict_options["case_largeur"] < 80 :
             texte = str(self.date.day)
         elif self.dict_options["case_largeur"] < 120 :
@@ -663,11 +663,11 @@ class CTRL_Tableau(wx.Panel):
         # Importation
         self.Importation()
 
-        # mémorise la position du scroll
+        # Mémorise la position du scroll
         # posScrollH = self.parent.scrollbar_h.GetScrollPos(wx.HORIZONTAL)
         # posScrollV = self.parent.scrollbar_v.GetScrollPos(wx.VERTICAL)
 
-        # création des colonnes
+        # Création des colonnes
         date_debut = self.dict_options["date_debut"]
         date_fin = self.dict_options["date_fin"]
         if date_debut == None or date_fin == None :
@@ -686,7 +686,7 @@ class CTRL_Tableau(wx.Panel):
 
         self.parent.ctrl_infos_2.SetTexte("")
 
-        # sélection selon IDlocation
+        # Sélection selon IDlocation
         if select_location != None:
             for barre in self.liste_barres:
                 if barre.IDlocation == select_location:
@@ -906,7 +906,7 @@ class CTRL_Tableau(wx.Panel):
         else:
             self.ActiveTooltip(actif=False)
 
-        # mémorise la barre survolée
+        # Mémorise la barre survolée
         region = None
         if barre != None :
             self.barre_survolee = barre
@@ -914,7 +914,7 @@ class CTRL_Tableau(wx.Panel):
         else :
             self.barre_survolee = None
 
-        # création d'une nouvelle barre
+        # Création d'une nouvelle barre
         nouvelle_barre = False
         if self.barre_selectionnee == None and heure != None and wx.GetKeyState(wx.WXK_CONTROL) and wx.GetMouseState().LeftIsDown():
             barre = Barre(self, donnees={"IDproduit": IDproduit, "date_debut": heure, "date_fin": heure + datetime.timedelta(minutes=10)})
@@ -1121,7 +1121,7 @@ class CTRL_Tableau(wx.Panel):
 
 
     def MAJ_colonnes(self):
-        # création des colonnes
+        # Création des colonnes
         self.liste_colonnes = []
         self.dict_colonnes = {}
         liste_dates = list(rrule.rrule(rrule.DAILY, dtstart=self.dict_options["date_debut"], until=self.dict_options["date_fin"]))
@@ -1167,7 +1167,7 @@ class CTRL_Tableau(wx.Panel):
 
 
     def MAJ_lignes(self):
-        # création des lignes
+        # Création des lignes
         self.liste_lignes = []
         self.dict_lignes = {}
         num_ligne = 0
@@ -1246,7 +1246,7 @@ class CTRL_Tableau(wx.Panel):
             self.barre_survolee = None
 
     def AfficheTooltip(self):
-        """ création du supertooltip """
+        """ Création du supertooltip """
         barre = self.tip.barre
 
         # Paramétrage du tooltip
@@ -1283,13 +1283,13 @@ class CTRL_Tableau(wx.Panel):
             texte += u"\nProduit : %s" % self.dict_produits[barre.IDproduit]["nom"]
             texte += u"\nCatégorie : %s" % self.dict_produits[barre.IDproduit]["nom_categorie"]
             texte += u"\n"
-            texte += u"\ndébut : %s" % UTILS_Dates.DatetimeEnFr(barre.date_debut)
+            texte += u"\nDébut : %s" % UTILS_Dates.DatetimeEnFr(barre.date_debut)
             if barre.date_fin.year == 2999 :
                 texte += u"\nFin : Non définie"
             else :
                 texte += u"\nFin : %s" % UTILS_Dates.DatetimeEnFr(barre.date_fin)
             texte += u"\n"
-            texte += u"\nquantité : %s" % barre.quantite
+            texte += u"\nQuantité : %s" % barre.quantite
             if len(self.liste_questions) > 0 :
                 texte += u"\n"
                 for dictQuestion in self.liste_questions :
@@ -1343,7 +1343,7 @@ class CTRL_Tableau(wx.Panel):
         frame = wx.GetApp().GetTopWindow()
         if not printer.Print(frame, printout, True):
             if printer.GetLastError() == wx.PRINTER_ERROR:
-                wx.MessageBox(_(u"problème d'impression. Peut-être votre imprimante n'est-elle pas configurée correctement ?"), "Impression", wx.OK)
+                wx.MessageBox(_(u"Problème d'impression. Peut-être votre imprimante n'est-elle pas configurée correctement ?"), "Impression", wx.OK)
         else:
             self.printData = wx.PrintData( printer.GetPrintDialogData().GetPrintData() )
         printout.Destroy()
@@ -1357,7 +1357,7 @@ class CTRL_Tableau(wx.Panel):
             logging.debug(_(u"Impossible d'afficher l'aperçu avant impression...\n"))
             return
         frame = wx.GetApp().GetTopWindow()
-        pfrm = wx.PreviewFrame(self.preview, frame, _(u"aperçu avant impression"))
+        pfrm = wx.PreviewFrame(self.preview, frame, _(u"Aperçu avant impression"))
         pfrm.Initialize()
         pfrm.SetPosition(frame.GetPosition())
         pfrm.SetSize(frame.GetSize())
