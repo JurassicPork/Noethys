@@ -5,7 +5,7 @@
 # Site internet :  www.noethys.com
 # Auteur:           Ivan LUCAS
 # Copyright:       (c) 2010-11 Ivan LUCAS
-# Licence:         Licence GNU GPL
+# Licence:         Licence GNU GPL  
 #------------------------------------------------------------------------
 
 
@@ -89,7 +89,7 @@ DICT_PROCEDURES = {
 # -------------------------------------------------------------------------------------------------------------------------
 
 def Procedure(code=""):
-    # Recherche si procédure existe
+    #  Recherche si procédure existe
     if (code in DICT_PROCEDURES) == False :
         dlg = wx.MessageDialog(None, _(u"Désolé, cette procédure n'existe pas..."), _(u"Erreur"), wx.OK | wx.ICON_ERROR)
         dlg.ShowModal()
